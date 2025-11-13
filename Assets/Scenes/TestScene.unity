@@ -4682,7 +4682,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Glyc\xE9mie"
+  m_text: Plaisir
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7899,7 +7899,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Glyc\xE9mie"
+  m_text: Energie
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -9891,6 +9891,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3177433931599112616, guid: c4374be1caf09e64197f330448afdb66, type: 3}
+      propertyPath: m_ChildControlHeight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3177433931599112616, guid: c4374be1caf09e64197f330448afdb66, type: 3}
+      propertyPath: m_ChildForceExpandHeight
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3374024987880745993, guid: c4374be1caf09e64197f330448afdb66, type: 3}
       propertyPath: m_Name
       value: PanelChoice
@@ -9909,7 +9917,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5338379202426036632, guid: c4374be1caf09e64197f330448afdb66, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 30
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5338379202426036632, guid: c4374be1caf09e64197f330448afdb66, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -9945,7 +9953,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7150712669624687695, guid: c4374be1caf09e64197f330448afdb66, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 30
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7150712669624687695, guid: c4374be1caf09e64197f330448afdb66, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -9993,7 +10001,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9130646815643289149, guid: c4374be1caf09e64197f330448afdb66, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 30
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9130646815643289149, guid: c4374be1caf09e64197f330448afdb66, type: 3}
       propertyPath: m_AnchoredPosition.x
