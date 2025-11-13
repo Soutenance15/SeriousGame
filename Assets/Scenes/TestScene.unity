@@ -491,6 +491,7 @@ GameObject:
   m_Component:
   - component: {fileID: 106243452}
   - component: {fileID: 106243453}
+  - component: {fileID: 106243454}
   m_Layer: 0
   m_Name: ChoiceManager
   m_TagString: Untagged
@@ -528,10 +529,29 @@ MonoBehaviour:
   sliderGlycemie: {fileID: 2050020020}
   sliderEnergy: {fileID: 1058527598}
   sliderPleasure: {fileID: 49191925}
-  glycemieMax: 20
-  energyMax: 30
-  pleasureMax: 100
+  player: {fileID: 1051484339}
   choiceEvent: {fileID: 11400000, guid: e6677e39b1dd87a439a889649f628e53, type: 2}
+--- !u!114 &106243454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 106243451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67479653ea2e75d468931f9104ba185d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  glycemie: 47
+  pleasure: 45
+  energy: 45
+  glycemieMax: 0
+  energyMax: 0
+  pleasureMax: 0
+  glycemieMin: 0
+  energyMin: 0
+  pleasureMin: 0
 --- !u!1 &129521512
 GameObject:
   m_ObjectHideFlags: 0
@@ -5018,6 +5038,59 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1049571274}
   m_CullTransparentMesh: 1
+--- !u!1 &1051484338
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1051484340}
+  - component: {fileID: 1051484339}
+  m_Layer: 0
+  m_Name: ThePlayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1051484339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1051484338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67479653ea2e75d468931f9104ba185d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ThePlayer
+  glycemie: 44
+  pleasure: 78
+  energy: 74
+  glycemieMax: 80
+  energyMax: 100
+  pleasureMax: 100
+  glycemieMin: 20
+  energyMin: 25
+  pleasureMin: 0
+--- !u!4 &1051484340
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1051484338}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 497.77014, y: 591.485, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1057581690
 GameObject:
   m_ObjectHideFlags: 0
@@ -10028,3 +10101,4 @@ SceneRoots:
   - {fileID: 1621408607}
   - {fileID: 247373894}
   - {fileID: 106243452}
+  - {fileID: 1051484340}

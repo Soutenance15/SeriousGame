@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,18 +14,18 @@ public class ChoiceManager : MonoBehaviour
     [SerializeField]
     Slider sliderPleasure;
 
-    [Header("Max Values Sliders")]
     [SerializeField]
-    float glycemieMax;
-
-    [SerializeField]
-    float energyMax;
-
-    [SerializeField]
-    float pleasureMax;
+    ThePlayer player;
 
     [SerializeField]
     ChoiceEvent choiceEvent;
+
+    void Awake()
+    {
+        sliderGlycemie.value = player.GetGlycemie();
+        sliderEnergy.value = player.GetEnergy();
+        sliderPleasure.value = player.GetPleasure();
+    }
 
     private void OnEnable()
     {
@@ -40,15 +41,13 @@ public class ChoiceManager : MonoBehaviour
 
     void OnChoiceClick(Choice choice)
     {
-        sliderGlycemie.value += choice.GetGlycemie();
-        sliderEnergy.value += choice.GetEnergy();
-        sliderPleasure.value += choice.GetPleasure();
-        if (sliderGlycemie.value > glycemieMax)
-            sliderGlycemie.value = glycemieMax;
-        if (sliderEnergy.value > energyMax)
-            sliderEnergy.value = energyMax;
-        if (sliderPleasure.value > pleasureMax)
-            sliderPleasure.value = pleasureMax;
+        player.AddGlycemie(choice.GetGlycemie());
+        player.AddEnergy(choice.GetEnergy());
+        player.AddPleasure(choice.GetPleasure());
+
+        sliderGlycemie.value = player.GetGlycemie();
+        sliderEnergy.value = player.GetEnergy();
+        sliderPleasure.value = player.GetPleasure();
 
         Debug.Log(choice.GetTextChoice());
         Debug.Log(choice.GetMessageFinal());
