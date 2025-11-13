@@ -1,4 +1,5 @@
-using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,11 +21,26 @@ public class ChoiceManager : MonoBehaviour
     [SerializeField]
     ChoiceEvent choiceEvent;
 
+    [SerializeField]
+    GameObject panelAllChoices;
+    List<GameObject> allChoices;
+
+    int currentChoiceIndex = 0;
+    GameObject currentChoice;
+
     void Awake()
     {
         sliderGlycemie.value = player.GetGlycemie();
         sliderEnergy.value = player.GetEnergy();
         sliderPleasure.value = player.GetPleasure();
+        allChoices = new List<GameObject>();
+
+        foreach (Transform child in panelAllChoices.transform)
+        {
+            allChoices.Add(child.gameObject);
+        }
+
+        currentChoice = allChoices[currentChoiceIndex];
     }
 
     private void OnEnable()
@@ -49,7 +65,31 @@ public class ChoiceManager : MonoBehaviour
         sliderEnergy.value = player.GetEnergy();
         sliderPleasure.value = player.GetPleasure();
 
+        NextChoice();
+
         Debug.Log(choice.GetTextChoice());
         Debug.Log(choice.GetMessageFinal());
+    }
+
+    void NextChoice()
+    {
+        currentChoiceIndex += 1;
+        if (currentChoiceIndex < allChoices.Count())
+        {
+            Debug.Log("Il ya un next choice");
+
+            // Cache le choix courant
+            currentChoice.SetActive(false);
+
+            // Change le choix courant
+            currentChoice = allChoices[currentChoiceIndex];
+
+            // Affiche le nouveau choix courant
+            currentChoice.SetActive(true);
+        }
+        else
+        {
+            Debug.Log("Il n'ya pas de next choice");
+        }
     }
 }
