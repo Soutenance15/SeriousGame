@@ -53,13 +53,13 @@ public class Choice : MonoBehaviour
         return glycemie;
     }
 
-    public float GetPleasur()
-    {
-        return pleasure;
-    }
-
     public float GetEnergy()
     {
         return energy;
+    }
+
+    public float GetPleasure()
+    {
+        return pleasure;
     }
 }
