@@ -34,6 +34,8 @@ public class ChoiceManager : MonoBehaviour
     [SerializeField]
     NextTextManager nextTextManager;
 
+    bool everStarted;
+
     void Awake()
     {
         sliderGlycemie.value = player.GetGlycemie();
@@ -89,7 +91,14 @@ public class ChoiceManager : MonoBehaviour
 
     void NextChoice()
     {
-        currentChoiceIndex += 1;
+        if (everStarted)
+        {
+            currentChoiceIndex += 1;
+        }
+        else
+        {
+            everStarted = true;
+        }
         if (currentChoiceIndex < allChoices.Count())
         {
             Debug.Log("Il y a un next choice");
