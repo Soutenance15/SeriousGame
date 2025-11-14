@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -28,6 +29,11 @@ public class ChoiceManager : MonoBehaviour
     int currentChoiceIndex = 0;
     GameObject currentChoice;
 
+    public Action StartNewDialog;
+
+    [SerializeField]
+    NextTextManager nextTextManager;
+
     void Awake()
     {
         sliderGlycemie.value = player.GetGlycemie();
@@ -43,17 +49,20 @@ public class ChoiceManager : MonoBehaviour
         }
 
         currentChoice = allChoices[currentChoiceIndex];
-
     }
 
     private void OnEnable()
     {
+        nextTextManager.StartNewChoice += NextChoice;
+
         if (choiceEvent != null)
             choiceEvent.RegisterListener(OnChoiceClick);
     }
 
     private void OnDisable()
     {
+        nextTextManager.StartNewChoice -= NextChoice;
+
         if (choiceEvent != null)
             choiceEvent.UnregisterListener(OnChoiceClick);
     }
@@ -68,10 +77,14 @@ public class ChoiceManager : MonoBehaviour
         sliderEnergy.value = player.GetEnergy();
         sliderPleasure.value = player.GetPleasure();
 
-        NextChoice();
+        // NextChoice();
+        StartNewDialog?.Invoke();
 
-        Debug.Log(choice.GetTextChoice());
-        Debug.Log(choice.GetMessageFinal());
+        // Cache le current Choice
+        currentChoice.SetActive(false);
+
+        // Debug.Log(choice.GetTextChoice());
+        // Debug.Log(choice.GetMessageFinal());
     }
 
     void NextChoice()
@@ -79,7 +92,7 @@ public class ChoiceManager : MonoBehaviour
         currentChoiceIndex += 1;
         if (currentChoiceIndex < allChoices.Count())
         {
-            Debug.Log("Il ya un next choice");
+            Debug.Log("Il y a un next choice");
 
             // Cache le choix courant
             currentChoice.SetActive(false);

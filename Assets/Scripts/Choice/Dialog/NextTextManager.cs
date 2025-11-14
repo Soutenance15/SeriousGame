@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NextTextManager : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class NextTextManager : MonoBehaviour
     int currentTextIndex = 0;
     GameObject currentText;
 
-    public Action StartNewDialog;
+    public Action StartNewChoice;
 
     void Awake()
     {
@@ -37,11 +38,6 @@ public class NextTextManager : MonoBehaviour
 
     void OnNextTextClick(Text text)
     {
-        NextText();
-    }
-
-    void NextText()
-    {
         currentTextIndex += 1;
         Debug.Log("Current Index : + " + currentTextIndex);
         Debug.Log("allTexts.Count : + " + allTexts.Count);
@@ -57,12 +53,19 @@ public class NextTextManager : MonoBehaviour
 
             // Affiche le nouveau text courant
             currentText.SetActive(true);
+            if (currentTextIndex == allTexts.Count() - 1 && (null != text.GetNextButton()))
+            {
+                // Securité
+                // Le dernier dialog ne doit pas avoir de bouton next normalement.
+                text.GetNextButton().gameObject.SetActive(false);
+                StartNewChoice?.Invoke();
+            }
         }
-        else
-        {
-            StartNewDialog?.Invoke();
-            Debug.Log("Il n'y a pas de next text");
-        }
+        // else
+        // {
+        //     StartNewChoice?.Invoke();
+        //     Debug.Log("Il n'y a pas de next text");
+        // }
     }
 
     public void UpdateText(GameObject panelAllTexts)

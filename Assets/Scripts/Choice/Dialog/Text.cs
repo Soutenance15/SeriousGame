@@ -22,4 +22,9 @@ public class Text : MonoBehaviour
             nextTextEvent.Raise(this);
         }
     }
+
+    public Button GetNextButton()
+    {
+        return nextTextButton;
+    }
 }

@@ -10,6 +10,9 @@ public class DialogManager : MonoBehaviour
     [SerializeField]
     NextTextManager nextTextManager;
 
+    [SerializeField]
+    ChoiceManager choiceManager;
+
     List<GameObject> allDialogs;
 
     int currentDialogIndex = 0;
@@ -17,8 +20,6 @@ public class DialogManager : MonoBehaviour
 
     void Awake()
     {
-        // nextTextManager = GetComponent<NextTextManager>();
-
         allDialogs = new List<GameObject>();
 
         foreach (Transform child in panelAlldialog.transform)
@@ -36,25 +37,23 @@ public class DialogManager : MonoBehaviour
 
     void OnEnable()
     {
-        nextTextManager.StartNewDialog += NextDialog;
+        choiceManager.StartNewDialog += NextDialog;
     }
 
     void OnDisable()
     {
-        nextTextManager.StartNewDialog -= NextDialog;
+        choiceManager.StartNewDialog -= NextDialog;
     }
 
     void NextDialog()
     {
-        // Désactive l'ancien dialog
-        if (currentDialog != null)
-            currentDialog.SetActive(false);
-
         // Avance l'index
         currentDialogIndex += 1;
 
         if (currentDialogIndex < allDialogs.Count)
         {
+            // Désactive l'ancien dialog
+            currentDialog.SetActive(false);
             // Met à jour currentDialog avant d'appeler UpdateText
             currentDialog = allDialogs[currentDialogIndex];
             currentDialog.SetActive(true);
