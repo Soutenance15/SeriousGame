@@ -9,6 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8a2378c9296dc742857b0fd0688e6c6, type: 3}
+  m_Script: {fileID: 11500000, guid: 9aae10516bbd48b46bc0bf7c87bbbb08, type: 3}
   m_Name: NewNextTextEvent
   m_EditorClassIdentifier: Assembly-CSharp::NextTextEvent
