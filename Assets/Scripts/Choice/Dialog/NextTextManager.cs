@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 
 public class NextTextManager : MonoBehaviour
@@ -14,17 +16,11 @@ public class NextTextManager : MonoBehaviour
     int currentTextIndex = 0;
     GameObject currentText;
 
+    public Action StartNewDialog;
+
     void Awake()
     {
-        // Choice
-        allTexts = new List<GameObject>();
-
-        foreach (Transform child in panelAllTexts.transform)
-        {
-            allTexts.Add(child.gameObject);
-        }
-
-        currentText = allTexts[currentTextIndex];
+        UpdateText(panelAllTexts);
     }
 
     private void OnEnable()
@@ -47,6 +43,8 @@ public class NextTextManager : MonoBehaviour
     void NextText()
     {
         currentTextIndex += 1;
+        Debug.Log("Current Index : + " + currentTextIndex);
+        Debug.Log("allTexts.Count : + " + allTexts.Count);
         if (currentTextIndex < allTexts.Count())
         {
             Debug.Log("Il y a un next text");
@@ -62,7 +60,26 @@ public class NextTextManager : MonoBehaviour
         }
         else
         {
+            StartNewDialog?.Invoke();
             Debug.Log("Il n'y a pas de next text");
         }
+    }
+
+    public void UpdateText(GameObject panelAllTexts)
+    {
+        this.panelAllTexts = panelAllTexts;
+        allTexts = new List<GameObject>();
+        currentTextIndex = 0;
+        foreach (Transform child in panelAllTexts.transform)
+        {
+            if (null != child.gameObject.GetComponent<TextMeshProUGUI>())
+            {
+                child.gameObject.SetActive(false);
+                allTexts.Add(child.gameObject);
+            }
+        }
+
+        currentText = allTexts[currentTextIndex];
+        currentText.SetActive(true);
     }
 }
