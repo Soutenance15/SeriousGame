@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -149,20 +150,17 @@ public class ChoiceManager : MonoBehaviour
         player.AddEnergy(choice.GetEnergy() + energyDrift);
         player.AddPleasure(choice.GetPleasure() + pleasureDrift);
 
-        // Mise à jour sliders
-        sliderGlycemie.value = player.GetGlycemie();
-        sliderEnergy.value = player.GetEnergy();
-        sliderPleasure.value = player.GetPleasure();
+        // Valeurs cibles après mise à jour du player
+        float targetGly = player.GetGlycemie();
+        float targetEnergy = player.GetEnergy();
+        float targetPleasure = player.GetPleasure();
 
-        // 🔤 Mise à jour des textes affichés sur les sliders
-        if (glycemieText != null)
-            glycemieText.text = player.GetGlycemie().ToString("0.00") + " g/L";
-
-        if (energyText != null)
-            energyText.text = player.GetEnergy().ToString("0");
-
-        if (pleasureText != null)
-            pleasureText.text = player.GetPleasure().ToString("0");
+        // ----------------------------
+        // 🎚 ANIMATION PROGRESSIVE DES SLIDERS
+        // ----------------------------
+        StartCoroutine(AnimateSlider(sliderGlycemie, sliderGlycemie.value, targetGly, 0.3f, glycemieText, true));
+        StartCoroutine(AnimateSlider(sliderEnergy,   sliderEnergy.value,   targetEnergy, 0.3f, energyText, false));
+        StartCoroutine(AnimateSlider(sliderPleasure, sliderPleasure.value, targetPleasure, 0.3f, pleasureText, false));
 
         // Feedback vers le dialog manager
         OnChoiceSelectedWithFeedback?.Invoke(choice.GetMessageFinal());
@@ -197,4 +195,91 @@ public class ChoiceManager : MonoBehaviour
             Debug.Log("Il n'y a pas de next choice");
         }
     }
+
+    // ------------------------------------------------
+    // 🎞️ ANIMATION DOUCE DES SLIDERS + TEXTES
+    // ------------------------------------------------
+private IEnumerator AnimateSlider(
+    Slider slider,
+    float startValue,
+    float targetValue,
+    float duration,
+    TextMeshProUGUI valueText,
+    bool isGlycemie
+)
+{
+    float time = 0f;
+
+    // ---- BOUNCE : petit boost du scale au début ----
+    Transform s = slider.transform;
+    Vector3 baseScale = s.localScale;
+    Vector3 boostedScale = baseScale * 1.10f;   // petite montée
+    Vector3 overShootScale = baseScale * 1.04f; // micro rebond final
+
+    // start → boost
+    float bounceInTime = 0.1f;
+    float bounceOutTime = 0.12f;
+
+    // Phase 1 : petit pop rapide
+    float bt = 0f;
+    while (bt < bounceInTime)
+    {
+        bt += Time.deltaTime;
+        float t = bt / bounceInTime;
+        t = t * t; // ease-in
+        s.localScale = Vector3.Lerp(baseScale, boostedScale, t);
+        yield return null;
+    }
+
+    // ---- SLIDER VALUE ANIMATION ----
+    while (time < duration)
+    {
+        time += Time.deltaTime;
+        float t = time / duration;
+        t = t * t * (3f - 2f * t); // smoothstep
+
+        float currentValue = Mathf.Lerp(startValue, targetValue, t);
+        slider.value = currentValue;
+
+        // Mise à jour du texte
+        if (valueText != null)
+        {
+            if (isGlycemie)
+                valueText.text = currentValue.ToString("0.00") + " g/L";
+            else
+                valueText.text = Mathf.RoundToInt(currentValue).ToString("0");
+        }
+
+        yield return null;
+    }
+
+    slider.value = targetValue;
+
+    // ---- PHASE 2 : retour vers overshoot -> base ----
+    // Petit rebond amorti
+    float ot = 0f;
+    while (ot < bounceOutTime)
+    {
+        ot += Time.deltaTime;
+        float t = ot / bounceOutTime;
+        t = Mathf.Sin(t * Mathf.PI); // rebond léger
+
+        // overshoot → baseScale
+        s.localScale = Vector3.Lerp(overShootScale, baseScale, t);
+
+        yield return null;
+    }
+
+    s.localScale = baseScale;
+
+    // Mise à jour définitive du texte
+    if (valueText != null)
+    {
+        if (isGlycemie)
+            valueText.text = targetValue.ToString("0.00") + " g/L";
+        else
+            valueText.text = Mathf.RoundToInt(targetValue).ToString("0");
+    }
+}
+
 }
