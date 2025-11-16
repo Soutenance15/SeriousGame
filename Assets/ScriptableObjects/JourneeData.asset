@@ -48,7 +48,7 @@ MonoBehaviour:
         du sucre naturel et des fibres.\nC\u2019est le genre de petit-d\xE9jeuner
         qui limite les pics de glyc\xE9mie tout en te laissant de l\u2019\xE9nergie
         pour la suite."
-  - questionText: "Ton traitement est l\xE0, pos\xE9 devant to, tu t\u2019arr\xEAtes
+  - questionText: "Ton traitement est l\xE0, pos\xE9 devant toi, tu t\u2019arr\xEAtes
       un instant. Tu le prends maintenant ou tu repousses encore un peu ?"
     choices:
     - label: "Tu repousses un peu. \xC7a attendra. Pour l\u2019instant, tu pr\xE9f\xE8res
@@ -56,7 +56,7 @@ MonoBehaviour:
       deltaGlycemie: 0.05
       deltaEnergie: -5
       deltaPlaisir: 0
-      feedback: "Le prendre en d\xE9cal\xE9, \xE7a reste mieux que de l\u2019oublier\u2026\nmais
+      feedback: "Le prendre en d\xE9cal\xE9, \xE7a reste mieux que de l\u2019oublier\nmais
         l\u2019efficacit\xE9 n\u2019est pas la m\xEAme.\nTon corps risque d\u2019\xEAtre
         un peu moins stable jusqu\u2019\xE0 ce que le m\xE9dicament fasse effet."
     - label: "Tu passes \xE0 autre chose sans vraiment t\u2019en rendre compte\u2026
@@ -157,10 +157,9 @@ MonoBehaviour:
       deltaGlycemie: -0.02
       deltaEnergie: 1
       deltaPlaisir: 1
-      feedback: "Oui, dire non peut sembler mal vu quand tout le monde se sert\u2026
-        mais ta sant\xE9 passe avant les regards. Tu \xE9vites un pic de glyc\xE9mie
-        inutile et tu gardes le contr\xF4le. Une petite g\xEAne sociale pour un vrai
-        gain sur la dur\xE9e."
+      feedback: "Une tisane nature, ce n\u2019est pas le choix le plus excitant,
+        mais ton corps appr\xE9cie : tu t\u2019hydrates, tu \xE9vites le sucre inutile
+        et tu restes dans quelque chose de l\xE9ger et ma\xEEtris\xE9."
     - label: "Prendre une boisson sucr\xE9e (caf\xE9 ou th\xE9 sucr\xE9)."
       deltaGlycemie: 0.1
       deltaEnergie: 5
@@ -222,9 +221,9 @@ MonoBehaviour:
       feedback: "Repartir aussit\xF4t, c\u2019est rentable en temps mais pas en bien-\xEAtre
         : la fatigue reste l\xE0, et la glyc\xE9mie met plus de temps \xE0 redescendre.
         L\u2019apr\xE8s-midi risque d\u2019\xEAtre un peu lourde."
-  - questionText: "L\u2019apr\xE8s-midi avance et l\xE0, BIM : une grosse baisse
-      d\u2019\xE9nergie.\nTu sens que ton corps r\xE9clame quelque chose.\nComment
-      tu r\xE9agis ?"
+  - questionText: "L\u2019apr\xE8s-midi t\u2019\xE9crase un peu.\nTu sens ton corps
+      ralentir, comme si quelque chose tirait sur tes \xE9paules.\nComment tu r\xE9agis
+      \xE0 cette sensation ?"
     choices:
     - label: "Attraper un snack bien sucr\xE9 pour te r\xE9veiller."
       deltaGlycemie: 0.2
