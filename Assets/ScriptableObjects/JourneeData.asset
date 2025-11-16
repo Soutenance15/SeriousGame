@@ -16,4 +16,308 @@ MonoBehaviour:
   startGlycemie: 1.2
   startEnergy: 60
   startPleasure: 50
-  steps: []
+  steps:
+  - questionText: "C\u2019est le matin. Vous devez choisir votre petit-d\xE9jeuner.
+      Que prenez-vous ?"
+    choices:
+    - label: "Le combo croissant-jus t\u2019appelle, sucr\xE9, rapide, rassurant\u2026
+        Un petit plaisir pour bien lancer la journ\xE9e ?"
+      deltaGlycemie: 0.3
+      deltaEnergie: 10
+      deltaPlaisir: 20
+      feedback: "C\u2019\xE9tait bon, oui, mais ta glyc\xE9mie grimpe vite apr\xE8s
+        ce type de petit-d\xE9jeuner.\nCroissant + jus, c\u2019est un combo tr\xE8s
+        sucr\xE9 : plaisir imm\xE9diat, mais \xE9nergie en dents de scie.\nPas id\xE9al
+        quand on doit garder un niveau stable sur la matin\xE9e."
+    - label: "Les \u0153ufs et le caf\xE9 ou le th\xE9 sans sucre, pas glamour, mais
+        tu sens que \xE7a mettrait ton corps au calme."
+      deltaGlycemie: 0.05
+      deltaEnergie: 20
+      deltaPlaisir: 8
+      feedback: "C\u2019est une option solide pour garder ta glyc\xE9mie plus calme
+        le matin.\nLes prot\xE9ines des \u0153ufs t\u2019aident \xE0 tenir longtemps
+        sans pic ni chute brutale.\nPas le plus fun, mais clairement un choix qui
+        stabilise la journ\xE9e."
+    - label: "Le pain complet et le fruit, ok c\u2019est pas l\u2019option qui fait
+        r\xEAver\u2026 mais c\u2019est clairement celle qui te portera le mieux toute
+        la matin\xE9e."
+      deltaGlycemie: 0.15
+      deltaEnergie: 15
+      deltaPlaisir: 10
+      feedback: "Tu donnes \xE0 ton corps quelque chose de plus r\xE9gulier, avec
+        du sucre naturel et des fibres.\nC\u2019est le genre de petit-d\xE9jeuner
+        qui limite les pics de glyc\xE9mie tout en te laissant de l\u2019\xE9nergie
+        pour la suite."
+  - questionText: "Ton traitement est l\xE0, pos\xE9 devant to, tu t\u2019arr\xEAtes
+      un instant. Tu le prends maintenant ou tu repousses encore un peu ?"
+    choices:
+    - label: "Tu repousses un peu. \xC7a attendra. Pour l\u2019instant, tu pr\xE9f\xE8res
+        te concentrer sur autre chose."
+      deltaGlycemie: 0.05
+      deltaEnergie: -5
+      deltaPlaisir: 0
+      feedback: "Le prendre en d\xE9cal\xE9, \xE7a reste mieux que de l\u2019oublier\u2026\nmais
+        l\u2019efficacit\xE9 n\u2019est pas la m\xEAme.\nTon corps risque d\u2019\xEAtre
+        un peu moins stable jusqu\u2019\xE0 ce que le m\xE9dicament fasse effet."
+    - label: "Tu passes \xE0 autre chose sans vraiment t\u2019en rendre compte\u2026
+        ou peut-\xEAtre que tu n\u2019as juste pas envie maintenant."
+      deltaGlycemie: 0.1
+      deltaEnergie: -10
+      deltaPlaisir: 5
+      feedback: "Sans ton traitement, ton corps doit faire l\u2019effort tout seul
+        et c\u2019est plus difficile pour lui.\nLa glyc\xE9mie a tendance \xE0 monter,
+        et la fatigue peut pointer plus vite."
+    - label: "Tu prends une seconde pour te poser, puis tu avales ton comprim\xE9
+        comme pr\xE9vu. La routine, malgr\xE9 tout."
+      deltaGlycemie: -0.1
+      deltaEnergie: 5
+      deltaPlaisir: 0
+      feedback: "Bien vu.\nLe prendre au bon moment aide ton corps \xE0 mieux g\xE9rer
+        sa glyc\xE9mie.\nTu te donnes un coup de pouce pour \xE9viter les montagnes
+        russes pendant ta matin\xE9e."
+  - questionText: "Le jour commence vraiment et il faut rejoindre le boulot.\nComment
+      d\xE9cides-tu de te d\xE9placer aujourd\u2019hui ?"
+    choices:
+    - label: "Prendre la voiture, m\xEAme si le trajet risque d\u2019\xEAtre un peu
+        charg\xE9."
+      deltaGlycemie: 0.1
+      deltaEnergie: -10
+      deltaPlaisir: 0
+      feedback: "La route n\u2019\xE9tait pas de tout repos : embouteillages, tension,
+        acc\xE9l\xE9rations. Ce stress discret mais continu fait grimper ta glyc\xE9mie
+        et t\u2019\xE9puise un peu plus que pr\xE9vu."
+    - label: "Marcher d\u2019un bon pas pour commencer la journ\xE9e diff\xE9remment."
+      deltaGlycemie: -0.1
+      deltaEnergie: 10
+      deltaPlaisir: 5
+      feedback: "Cette marche t\u2019a fait un bien fou : activit\xE9 physique r\xE9guli\xE8re
+        = glyc\xE9mie qui se r\xE9gule, esprit plus clair, \xE9nergie au top. Une
+        vraie mise en route positive."
+    - label: "Prendre le bus, une option simple et sans trop r\xE9fl\xE9chir."
+      deltaGlycemie: 0
+      deltaEnergie: -5
+      deltaPlaisir: 0
+      feedback: "Le trajet ne t\u2019a ni boost\xE9 ni cass\xE9 compl\xE8tement.
+        Pas d\u2019impact particulier sur la glyc\xE9mie, mais l\u2019attente, la
+        foule et le rythme du bus t\u2019ont tout de m\xEAme pomp\xE9 un peu d\u2019\xE9nergie."
+  - questionText: "Te voil\xE0 au boulot. L\u2019ambiance d\xE9marre au quart de
+      tour\u2026\nComment choisis-tu d\u2019aborder cette premi\xE8re minute ?"
+    choices:
+    - label: "Prendre un court instant pour respirer avant d\u2019attaquer."
+      deltaGlycemie: -0.05
+      deltaEnergie: 5
+      deltaPlaisir: 5
+      feedback: "Quelques secondes de respiration, et ton corps en profite : le stress
+        redescend, la glyc\xE9mie se stabilise et tu gagnes un petit \xE9lan positif
+        pour la suite."
+    - label: "Te jeter directement dans la pression d\xE8s l'arriv\xE9e."
+      deltaGlycemie: 0.1
+      deltaEnergie: -10
+      deltaPlaisir: 0
+      feedback: "Commencer sous tension te met tout de suite en mode survie : mont\xE9e
+        de stress, glyc\xE9mie qui grimpe et \xE9nergie qui s\u2019effondre plus
+        vite que pr\xE9vu. Un d\xE9but de journ\xE9e un peu rude."
+    - label: "Prendre une boisson chaude sans sucre (caf\xE9 ou th\xE9) pour te lancer."
+      deltaGlycemie: 0
+      deltaEnergie: 3
+      deltaPlaisir: 2
+      feedback: "Un petit boost sans sucre, que ce soit caf\xE9 ou th\xE9. Tu gagnes
+        en \xE9nergie sans impacter ta glyc\xE9mie, et ce petit rituel t\u2019offre
+        un moment agr\xE9able pour d\xE9marrer."
+  - questionText: "L\u2019ambiance du bureau se r\xE9chauffe : quelqu\u2019un arrive
+      avec g\xE2teaux et bonbons.\nLa tentation est bien r\xE9elle !\nTu fais quoi
+      ?"
+    choices:
+    - label: "Te laisser tenter par un g\xE2teau bien sucr\xE9."
+      deltaGlycemie: 0.25
+      deltaEnergie: 5
+      deltaPlaisir: 20
+      feedback: "Le go\xFBt est top, le plaisir imm\xE9diat\u2026 mais ta glyc\xE9mie
+        grimpe en fl\xE8che. Ce genre de sucre rapide booste fort, mais retombe tout
+        aussi vite."
+    - label: Piocher juste un bonbon, histoire de participer.
+      deltaGlycemie: 0.15
+      deltaEnergie: 3
+      deltaPlaisir: 10
+      feedback: "M\xEAme un petit bonbon agit vite : mont\xE9e de glyc\xE9mie, petit
+        coup d\u2019\xE9nergie, puis \xE7a s\u2019estompe. C\u2019est discret\u2026
+        mais \xE7a compte."
+    - label: "Refuser poliment et te rabattre sur un verre d\u2019eau."
+      deltaGlycemie: 0
+      deltaEnergie: 0
+      deltaPlaisir: -5
+      feedback: "Oui, dire non peut sembler mal vu quand tout le monde se sert\u2026
+        mais ta sant\xE9 passe avant les regards. Tu \xE9vites un pic de glyc\xE9mie
+        inutile et tu gardes le contr\xF4le. Une petite g\xEAne sociale pour un vrai
+        gain sur la dur\xE9e."
+  - questionText: "Petite pause au boulot. Tout le monde se dirige vers la machine\nQu\u2019est-ce
+      que tu choisis pour recharger un peu ?"
+    choices:
+    - label: Opter pour une infusion de tisane nature, sans sucre.
+      deltaGlycemie: -0.02
+      deltaEnergie: 1
+      deltaPlaisir: 1
+      feedback: "Oui, dire non peut sembler mal vu quand tout le monde se sert\u2026
+        mais ta sant\xE9 passe avant les regards. Tu \xE9vites un pic de glyc\xE9mie
+        inutile et tu gardes le contr\xF4le. Une petite g\xEAne sociale pour un vrai
+        gain sur la dur\xE9e."
+    - label: "Prendre une boisson sucr\xE9e (caf\xE9 ou th\xE9 sucr\xE9)."
+      deltaGlycemie: 0.1
+      deltaEnergie: 5
+      deltaPlaisir: 8
+      feedback: "Le sucre te donne un petit boost mais ta glyc\xE9mie grimpe sans
+        vraie raison. Un choix agr\xE9able sur le moment, moins sympa pour ton \xE9quilibre."
+    - label: "Boire un caf\xE9 ou un th\xE9 sans sucre."
+      deltaGlycemie: 0
+      deltaEnergie: 3
+      deltaPlaisir: 2
+      feedback: "Un coup de fouet l\xE9ger, propre, sans toucher \xE0 ta glyc\xE9mie.
+        Simple, efficace, et \xE7a te remet dans le rythme sans exc\xE8s."
+  - questionText: "Midi sonne, l\u2019estomac commence \xE0 r\xE2ler. Tu regardes
+      ce qu\u2019il y a autour de toi.\nQu\u2019est-ce qui finit dans ton assiette
+      aujourd\u2019hui ?"
+    choices:
+    - label: "Craquer pour un fast-food bien charg\xE9 ou une pizza bien g\xE9n\xE9reuse."
+      deltaGlycemie: 0.35
+      deltaEnergie: 20
+      deltaPlaisir: 25
+      feedback: "C\u2019est bon, c\u2019est rapide, et \xE7a remplit. Mais ce type
+        de repas est tr\xE8s riche : glyc\xE9mie qui bondit, digestion lourde\u2026
+        un plaisir intense mais qui se paye vite derri\xE8re."
+    - label: "Choisir un repas plus \xE9quilibr\xE9, avec l\xE9gumes et portion contr\xF4l\xE9e."
+      deltaGlycemie: 0.1
+      deltaEnergie: 15
+      deltaPlaisir: 10
+      feedback: "Un repas vari\xE9 et raisonnable : ta glyc\xE9mie augmente moins
+        brutalement et ton \xE9nergie se maintient plus longtemps. C\u2019est le
+        genre de choix qui stabilise ta journ\xE9e."
+    - label: Prendre un sandwich classique, simple et efficace.
+      deltaGlycemie: 0.2
+      deltaEnergie: 10
+      deltaPlaisir: 12
+      feedback: "C\u2019est un choix pratique et rassasiant, mais \xE7a reste relativement
+        dense en glucides. Ta glyc\xE9mie monte, moins fort que le fast-food, mais
+        suffisamment pour influencer ton apr\xE8s-midi."
+  - questionText: "Le repas est pass\xE9. L\u2019apr\xE8s-midi se profile et tu dois
+      choisir comment encha\xEEner\nTu fais quoi maintenant ?"
+    choices:
+    - label: "Faire une petite marche pour dig\xE9rer et te remettre en mouvement."
+      deltaGlycemie: 0.15
+      deltaEnergie: 10
+      deltaPlaisir: 5
+      feedback: "Bouger juste apr\xE8s manger aide ton corps \xE0 utiliser le sucre
+        circulant. R\xE9sultat : glyc\xE9mie qui redescend plus vite, esprit plus
+        clair, \xE9nergie mieux r\xE9partie pour la suite."
+    - label: "T\u2019accorder une sieste courte pour recharger un peu."
+      deltaGlycemie: -0.05
+      deltaEnergie: 15
+      deltaPlaisir: 8
+      feedback: "Une micro-sieste, \xE7a fait du bien : ton niveau d\u2019\xE9nergie
+        remonte sans te plomber, et ta glyc\xE9mie baisse l\xE9g\xE8rement. C\u2019est
+        propre, efficace et \xE7a remet les compteurs \xE0 z\xE9ro."
+    - label: Retourner directement au travail sans pause.
+      deltaGlycemie: 0.2
+      deltaEnergie: -5
+      deltaPlaisir: 0
+      feedback: "Repartir aussit\xF4t, c\u2019est rentable en temps mais pas en bien-\xEAtre
+        : la fatigue reste l\xE0, et la glyc\xE9mie met plus de temps \xE0 redescendre.
+        L\u2019apr\xE8s-midi risque d\u2019\xEAtre un peu lourde."
+  - questionText: "L\u2019apr\xE8s-midi avance et l\xE0, BIM : une grosse baisse
+      d\u2019\xE9nergie.\nTu sens que ton corps r\xE9clame quelque chose.\nComment
+      tu r\xE9agis ?"
+    choices:
+    - label: "Attraper un snack bien sucr\xE9 pour te r\xE9veiller."
+      deltaGlycemie: 0.2
+      deltaEnergie: 10
+      deltaPlaisir: 15
+      feedback: "Le sucre agit vite, c\u2019est vrai : un vrai coup de fouet. Mais
+        l\u2019effet retombe tout aussi vite, et ta glyc\xE9mie fait un gros bond
+        avant de redescendre brutalement. C\u2019est un boost express\u2026 avec
+        l\u2019addition derri\xE8re"
+    - label: Faire une petite pause active pour relancer tes batteries.
+      deltaGlycemie: -0.05
+      deltaEnergie: 8
+      deltaPlaisir: 5
+      feedback: "Bouger un peu active ta circulation et aide ton corps \xE0 utiliser
+        le sucre disponible. R\xE9sultat : \xE9nergie plus propre, glyc\xE9mie qui
+        redescend, et esprit plus clair."
+    - label: "Boire un peu d\u2019eau et faire quelques respirations pour te remettre."
+      deltaGlycemie: -0.02
+      deltaEnergie: 3
+      deltaPlaisir: 2
+      feedback: "Ce n'est pas spectaculaire, mais efficace : boire et respirer apaise
+        le corps, relance doucement l\u2019\xE9nergie et contribue \xE0 stabiliser
+        la glyc\xE9mie. Une recharge lente mais vraiment saine."
+  - questionText: "Une t\xE2che vraiment exigeante se pr\xE9sente.\nTon cerveau est
+      d\xE9j\xE0 bien sollicit\xE9, mais il faut avancer.\nQuelle approche tu choisis
+      ?"
+    choices:
+    - label: "Y aller en force, m\xEAme si tu sens la fatigue te tirer vers le bas."
+      deltaGlycemie: 0.05
+      deltaEnergie: -10
+      deltaPlaisir: -5
+      feedback: "Forcer quand l\u2019\xE9nergie est basse met ton corps sous tension
+        : le stress grimpe, la fatigue s\u2019amplifie et ta glyc\xE9mie suit le
+        mouvement. Tu avances, oui\u2026 mais \xE0 quel prix ?"
+    - label: "Te r\xE9organiser pour aborder la t\xE2che diff\xE9remment."
+      deltaGlycemie: 0
+      deltaEnergie: 0
+      deltaPlaisir: 0
+      feedback: "Revoir ta strat\xE9gie te permet d\u2019\xE9viter le mur sans puiser
+        plus d\u2019\xE9nergie. Ni mieux, ni pire : juste une fa\xE7on plus neutre
+        de g\xE9rer la difficult\xE9."
+    - label: Faire une courte pause pour repartir plus clair.
+      deltaGlycemie: -0.05
+      deltaEnergie: 5
+      deltaPlaisir: 3
+      feedback: "Une petite pause, et ton corps en profite : respiration qui redescend,
+        glyc\xE9mie qui se stabilise, \xE9nergie qui remonte. Tu repars avec plus
+        de clart\xE9 et de marge."
+  - questionText: "La journ\xE9e touche enfin \xE0 sa fin.\nTu souffles un peu et
+      maintenant il faut rentrer.\nComment tu choisis de faire le chemin du retour
+      ?"
+    choices:
+    - label: Prendre la voiture et rentrer directement.
+      deltaGlycemie: 0.05
+      deltaEnergie: -5
+      deltaPlaisir: 0
+      feedback: "Le trajet en voiture \xE9vite l\u2019effort mais ajoute un peu de
+        stress et de s\xE9dentarit\xE9. Rien de dramatique, mais \xE7a ne favorise
+        ni la d\xE9tente ni la glyc\xE9mie."
+    - label: "Reprendre le bus, tranquillement, en attendant d\u2019arriver."
+      deltaGlycemie: 0
+      deltaEnergie: -3
+      deltaPlaisir: 0
+      feedback: "Trajet neutre : pas d\u2019effort, pas d\u2019impact direct sur
+        la glyc\xE9mie. Mais la fatigue du transport se fait sentir, comme d\u2019habitude."
+    - label: "Rentrer \xE0 pied et te d\xE9gourdir les jambes."
+      deltaGlycemie: -0.1
+      deltaEnergie: 5
+      deltaPlaisir: 5
+      feedback: "Marcher te fait redescendre la pression de la journ\xE9e, aide la
+        glyc\xE9mie \xE0 se stabiliser et rel\xE2che les tensions. Une transition
+        douce vers la soir\xE9e."
+  - questionText: "La journ\xE9e touche enfin \xE0 sa fin.\nTu souffles un peu et
+      maintenant il faut rentrer.\nComment tu choisis de faire le chemin du retour
+      ?"
+    choices:
+    - label: Prendre la voiture et rentrer directement.
+      deltaGlycemie: 0.05
+      deltaEnergie: -5
+      deltaPlaisir: 0
+      feedback: "Le trajet en voiture \xE9vite l\u2019effort mais ajoute un peu de
+        stress et de s\xE9dentarit\xE9. Rien de dramatique, mais \xE7a ne favorise
+        ni la d\xE9tente ni la glyc\xE9mie."
+    - label: "Reprendre le bus, tranquillement, en attendant d\u2019arriver."
+      deltaGlycemie: 0
+      deltaEnergie: -3
+      deltaPlaisir: 0
+      feedback: "Trajet neutre : pas d\u2019effort, pas d\u2019impact direct sur
+        la glyc\xE9mie. Mais la fatigue du transport se fait sentir, comme d\u2019habitude."
+    - label: "Rentrer \xE0 pied et te d\xE9gourdir les jambes."
+      deltaGlycemie: -0.1
+      deltaEnergie: 5
+      deltaPlaisir: 5
+      feedback: "Marcher te fait redescendre la pression de la journ\xE9e, aide la
+        glyc\xE9mie \xE0 se stabiliser et rel\xE2che les tensions. Une transition
+        douce vers la soir\xE9e."
