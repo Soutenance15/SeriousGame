@@ -1,24 +1,23 @@
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
+using TMPro; // important pour TMP_Text
 
 public class DialogManager : MonoBehaviour
 {
-    [SerializeField]
-    GameObject panelAlldialog;
+    [Header("Dialogs")]
+    [SerializeField] private GameObject panelAlldialog;
+    [SerializeField] private NextTextManager nextTextManager;
+    [SerializeField] private ChoiceManager choiceManager;
 
-    [SerializeField]
-    NextTextManager nextTextManager;
+    private List<GameObject> allDialogs;
+    private int currentDialogIndex = 0;
+    private GameObject currentDialog;
 
-    [SerializeField]
-    ChoiceManager choiceManager;
+    [Header("UI Feedback")]
+    [SerializeField] private GameObject feedbackPanel;   // Panel avec le texte de feedback
+    [SerializeField] private TMP_Text feedbackText;      // Texte du feedback
 
-    List<GameObject> allDialogs;
-
-    int currentDialogIndex = 0;
-    GameObject currentDialog;
-
-    void Awake()
+    private void Awake()
     {
         allDialogs = new List<GameObject>();
 
@@ -33,27 +32,64 @@ public class DialogManager : MonoBehaviour
         // Active le premier dialog et initialise les textes
         currentDialog.SetActive(true);
         nextTextManager.UpdateText(currentDialog);
+
+        // On cache le feedback au départ
+        if (feedbackPanel != null)
+            feedbackPanel.SetActive(false);
     }
 
-    void OnEnable()
+    private void OnEnable()
     {
-        choiceManager.StartNewDialog += NextDialog;
+        // ⚠️ On ne laisse plus ChoiceManager déclencher tout seul le "Next"
+        // choiceManager.StartNewDialog += NextDialog;
+
+        // On branche un event ou une méthode pour recevoir le feedback
+        choiceManager.OnChoiceSelectedWithFeedback += ShowFeedback;
     }
 
-    void OnDisable()
+    private void OnDisable()
     {
-        choiceManager.StartNewDialog -= NextDialog;
+        // choiceManager.StartNewDialog -= NextDialog;
+        if (choiceManager != null)
+            choiceManager.OnChoiceSelectedWithFeedback -= ShowFeedback;
     }
 
-    void NextDialog()
+    /// <summary>
+    /// Appelé quand le joueur a choisi une réponse, avec le texte de feedback.
+    /// </summary>
+    public void ShowFeedback(string feedback)
     {
-        // Avance l'index
+        // Si pas de feedback, on enchaîne direct
+        if (string.IsNullOrEmpty(feedback))
+        {
+            NextDialog();
+            return;
+        }
+
+        if (feedbackPanel != null) feedbackPanel.SetActive(true);
+        if (feedbackText != null)  feedbackText.text = feedback;
+    }
+
+    /// <summary>
+    /// Appelé par le bouton "Continuer" du panel de feedback.
+    /// </summary>
+    public void OnFeedbackContinue()
+    {
+        if (feedbackPanel != null) feedbackPanel.SetActive(false);
+
+        // Maintenant seulement on passe à la question suivante
+        NextDialog();
+    }
+
+    private void NextDialog()
+    {
         currentDialogIndex += 1;
 
         if (currentDialogIndex < allDialogs.Count)
         {
             // Désactive l'ancien dialog
             currentDialog.SetActive(false);
+
             // Met à jour currentDialog avant d'appeler UpdateText
             currentDialog = allDialogs[currentDialogIndex];
             currentDialog.SetActive(true);
@@ -66,6 +102,7 @@ public class DialogManager : MonoBehaviour
         else
         {
             Debug.Log("Il n'y a pas de next dialog");
+            // ici tu peux désactiver le canvas, lancer une autre scène, etc.
         }
     }
 }

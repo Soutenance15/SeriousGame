@@ -7,42 +7,45 @@ using UnityEngine.UI;
 public class ChoiceManager : MonoBehaviour
 {
     [Header("Sliders")]
-    [SerializeField]
+    [SerializeField] 
     Slider sliderGlycemie;
 
-    [SerializeField]
+    [SerializeField] 
     Slider sliderEnergy;
 
-    [SerializeField]
+    [SerializeField] 
     Slider sliderPleasure;
 
-    [SerializeField]
+    [SerializeField] 
     ThePlayer player;
 
-    [SerializeField]
+    [SerializeField] 
     ChoiceEvent choiceEvent;
 
-    [SerializeField]
+    [Header("Choix UI")]
+    [SerializeField] 
     GameObject panelAllChoices;
-    List<GameObject> allChoices;
 
+    List<GameObject> allChoices;
     int currentChoiceIndex = 0;
     GameObject currentChoice;
 
-    public Action StartNewDialog;
-
-    [SerializeField]
+    [SerializeField] 
     NextTextManager nextTextManager;
 
     bool everStarted;
 
+    // ✅ Nouvel event : envoie le feedback (texte) au DialogManager
+    public event Action<string> OnChoiceSelectedWithFeedback;
+
     void Awake()
     {
+        // Init sliders avec les valeurs du joueur
         sliderGlycemie.value = player.GetGlycemie();
         sliderEnergy.value = player.GetEnergy();
         sliderPleasure.value = player.GetPleasure();
 
-        // Choice
+        // Récupère tous les groupes de choix enfants
         allChoices = new List<GameObject>();
 
         foreach (Transform child in panelAllChoices.transform)
@@ -50,7 +53,11 @@ public class ChoiceManager : MonoBehaviour
             allChoices.Add(child.gameObject);
         }
 
-        currentChoice = allChoices[currentChoiceIndex];
+        if (allChoices.Count > 0)
+        {
+            currentChoiceIndex = 0;
+            currentChoice = allChoices[currentChoiceIndex];
+        }
     }
 
     private void OnEnable()
@@ -71,26 +78,35 @@ public class ChoiceManager : MonoBehaviour
 
     void OnChoiceClick(Choice choice)
     {
+        if (choice == null)
+            return;
+
+        // 🔢 Applique les deltas au joueur
         player.AddGlycemie(choice.GetGlycemie());
         player.AddEnergy(choice.GetEnergy());
         player.AddPleasure(choice.GetPleasure());
 
+        // 💉 Met à jour les sliders
         sliderGlycemie.value = player.GetGlycemie();
         sliderEnergy.value = player.GetEnergy();
         sliderPleasure.value = player.GetPleasure();
 
-        // NextChoice();
-        StartNewDialog?.Invoke();
+        // 📝 Envoie le feedback au DialogManager (GetMessageFinal = ton texte de feedback)
+        OnChoiceSelectedWithFeedback?.Invoke(choice.GetMessageFinal());
 
-        // Cache le current Choice
-        currentChoice.SetActive(false);
+        // ❌ Empêche de recliquer sur ce groupe de choix
+        if (currentChoice != null)
+            currentChoice.SetActive(false);
 
-        // Debug.Log(choice.GetTextChoice());
-        // Debug.Log(choice.GetMessageFinal());
+        // ❌ On ne passe PLUS directement au dialog suivant ici
+        // StartNewDialog?.Invoke();  // -> supprimé
     }
 
     void NextChoice()
     {
+        if (allChoices == null || allChoices.Count == 0)
+            return;
+
         if (everStarted)
         {
             currentChoiceIndex += 1;
@@ -99,12 +115,14 @@ public class ChoiceManager : MonoBehaviour
         {
             everStarted = true;
         }
+
         if (currentChoiceIndex < allChoices.Count())
         {
             Debug.Log("Il y a un next choice");
 
             // Cache le choix courant
-            currentChoice.SetActive(false);
+            if (currentChoice != null)
+                currentChoice.SetActive(false);
 
             // Change le choix courant
             currentChoice = allChoices[currentChoiceIndex];
