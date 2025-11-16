@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DayData
   dayName: Journee diabete type 2
   startGlycemie: 1.2
-  startEnergy: 60
-  startPleasure: 50
+  startEnergy: 0
+  startPleasure: 0
   steps:
   - questionText: "C\u2019est le matin. Vous devez choisir votre petit-d\xE9jeuner.
       Que prenez-vous ?"
@@ -202,7 +202,7 @@ MonoBehaviour:
       choisir comment encha\xEEner\nTu fais quoi maintenant ?"
     choices:
     - label: "Faire une petite marche pour dig\xE9rer et te remettre en mouvement."
-      deltaGlycemie: 0.15
+      deltaGlycemie: -0.15
       deltaEnergie: 10
       deltaPlaisir: 5
       feedback: "Bouger juste apr\xE8s manger aide ton corps \xE0 utiliser le sucre
@@ -273,51 +273,28 @@ MonoBehaviour:
       feedback: "Une petite pause, et ton corps en profite : respiration qui redescend,
         glyc\xE9mie qui se stabilise, \xE9nergie qui remonte. Tu repars avec plus
         de clart\xE9 et de marge."
-  - questionText: "La journ\xE9e touche enfin \xE0 sa fin.\nTu souffles un peu et
-      maintenant il faut rentrer.\nComment tu choisis de faire le chemin du retour
-      ?"
+  - questionText: "Le soir s\u2019installe et l\u2019app\xE9tit revient.\nApr\xE8s
+      une longue journ\xE9e, tu dois choisir comment terminer ton alimentation.\nQu\u2019est-ce
+      que tu prends pour ton dernier repas ?"
     choices:
-    - label: Prendre la voiture et rentrer directement.
+    - label: "Te pr\xE9parer un repas bien lourd et bien copieux."
+      deltaGlycemie: 0.2
+      deltaEnergie: 10
+      deltaPlaisir: 20
+      feedback: "\xC7a cale, c\u2019est plaisant mais c\u2019est aussi tr\xE8s riche.
+        Ta glyc\xE9mie grimpe nettement et la digestion risque d\u2019\xEAtre lourde
+        pour la soir\xE9e."
+    - label: "Manger un repas \u201Cnormal\u201D, sans exc\xE8s particulier."
+      deltaGlycemie: 0.1
+      deltaEnergie: 15
+      deltaPlaisir: 10
+      feedback: "Un repas classique qui remplit bien, avec une hausse de glyc\xE9mie
+        mod\xE9r\xE9e. Rien de dramatique, mais pas la solution la plus douce non
+        plus."
+    - label: "Choisir un repas l\xE9ger et \xE9quilibr\xE9 pour finir proprement."
       deltaGlycemie: 0.05
-      deltaEnergie: -5
-      deltaPlaisir: 0
-      feedback: "Le trajet en voiture \xE9vite l\u2019effort mais ajoute un peu de
-        stress et de s\xE9dentarit\xE9. Rien de dramatique, mais \xE7a ne favorise
-        ni la d\xE9tente ni la glyc\xE9mie."
-    - label: "Reprendre le bus, tranquillement, en attendant d\u2019arriver."
-      deltaGlycemie: 0
-      deltaEnergie: -3
-      deltaPlaisir: 0
-      feedback: "Trajet neutre : pas d\u2019effort, pas d\u2019impact direct sur
-        la glyc\xE9mie. Mais la fatigue du transport se fait sentir, comme d\u2019habitude."
-    - label: "Rentrer \xE0 pied et te d\xE9gourdir les jambes."
-      deltaGlycemie: -0.1
-      deltaEnergie: 5
-      deltaPlaisir: 5
-      feedback: "Marcher te fait redescendre la pression de la journ\xE9e, aide la
-        glyc\xE9mie \xE0 se stabiliser et rel\xE2che les tensions. Une transition
-        douce vers la soir\xE9e."
-  - questionText: "La journ\xE9e touche enfin \xE0 sa fin.\nTu souffles un peu et
-      maintenant il faut rentrer.\nComment tu choisis de faire le chemin du retour
-      ?"
-    choices:
-    - label: Prendre la voiture et rentrer directement.
-      deltaGlycemie: 0.05
-      deltaEnergie: -5
-      deltaPlaisir: 0
-      feedback: "Le trajet en voiture \xE9vite l\u2019effort mais ajoute un peu de
-        stress et de s\xE9dentarit\xE9. Rien de dramatique, mais \xE7a ne favorise
-        ni la d\xE9tente ni la glyc\xE9mie."
-    - label: "Reprendre le bus, tranquillement, en attendant d\u2019arriver."
-      deltaGlycemie: 0
-      deltaEnergie: -3
-      deltaPlaisir: 0
-      feedback: "Trajet neutre : pas d\u2019effort, pas d\u2019impact direct sur
-        la glyc\xE9mie. Mais la fatigue du transport se fait sentir, comme d\u2019habitude."
-    - label: "Rentrer \xE0 pied et te d\xE9gourdir les jambes."
-      deltaGlycemie: -0.1
-      deltaEnergie: 5
-      deltaPlaisir: 5
-      feedback: "Marcher te fait redescendre la pression de la journ\xE9e, aide la
-        glyc\xE9mie \xE0 se stabiliser et rel\xE2che les tensions. Une transition
-        douce vers la soir\xE9e."
+      deltaEnergie: 10
+      deltaPlaisir: 8
+      feedback: "Un repas plus l\xE9ger t\u2019aide \xE0 mieux dig\xE9rer et \xE9vite
+        une mont\xE9e trop forte de la glyc\xE9mie. Tu termines la journ\xE9e plus
+        sereinement."
