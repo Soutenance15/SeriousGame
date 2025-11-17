@@ -10,8 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 72287015364807161}
   - component: {fileID: 7589733118615655176}
-  - component: {fileID: 3177433931599112616}
-  - component: {fileID: 4472317691581795111}
+  - component: {fileID: 7067380981745673234}
   m_Layer: 5
   m_Name: PanelChoice
   m_TagString: Untagged
@@ -26,7 +25,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3374024987880745993}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -49,7 +48,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3374024987880745993}
   m_CullTransparentMesh: 1
---- !u!114 &3177433931599112616
+--- !u!114 &7067380981745673234
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -58,53 +57,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 3374024987880745993}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.HorizontalLayoutGroup
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.VerticalLayoutGroup
   m_Padding:
     m_Left: 40
     m_Right: 40
-    m_Top: 40
-    m_Bottom: 40
+    m_Top: 0
+    m_Bottom: 0
   m_ChildAlignment: 4
-  m_Spacing: 80
+  m_Spacing: 10
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 1
-  m_ChildControlHeight: 0
-  m_ChildScaleWidth: 1
+  m_ChildControlHeight: 1
+  m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &4472317691581795111
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3374024987880745993}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!1001 &5117073644572779670
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -113,6 +82,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 72287015364807161}
     m_Modifications:
+    - target: {fileID: 2355429443275609421, guid: 5732a5f08bf15464bb30cb012e836a36, type: 3}
+      propertyPath: energy
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2355429443275609421, guid: 5732a5f08bf15464bb30cb012e836a36, type: 3}
+      propertyPath: glycemie
+      value: 54
+      objectReference: {fileID: 0}
+    - target: {fileID: 2355429443275609421, guid: 5732a5f08bf15464bb30cb012e836a36, type: 3}
+      propertyPath: pleasure
+      value: 34
+      objectReference: {fileID: 0}
     - target: {fileID: 2355429443275609421, guid: 5732a5f08bf15464bb30cb012e836a36, type: 3}
       propertyPath: textChoice
       value: Texte Blabla 3
@@ -151,7 +132,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4158491210941358763, guid: 5732a5f08bf15464bb30cb012e836a36, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 30
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4158491210941358763, guid: 5732a5f08bf15464bb30cb012e836a36, type: 3}
       propertyPath: m_LocalPosition.x
@@ -201,6 +182,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5340395886312655856, guid: 5732a5f08bf15464bb30cb012e836a36, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5340395886312655856, guid: 5732a5f08bf15464bb30cb012e836a36, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5340395886312655856, guid: 5732a5f08bf15464bb30cb012e836a36, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5340395886312655856, guid: 5732a5f08bf15464bb30cb012e836a36, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5340395886312655856, guid: 5732a5f08bf15464bb30cb012e836a36, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5340395886312655856, guid: 5732a5f08bf15464bb30cb012e836a36, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5443471094075589700, guid: 5732a5f08bf15464bb30cb012e836a36, type: 3}
       propertyPath: m_Name
       value: ButtonChoice (2)
@@ -223,6 +228,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 72287015364807161}
     m_Modifications:
+    - target: {fileID: 2355429443275609421, guid: 5732a5f08bf15464bb30cb012e836a36, type: 3}
+      propertyPath: energy
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2355429443275609421, guid: 5732a5f08bf15464bb30cb012e836a36, type: 3}
+      propertyPath: glycemie
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2355429443275609421, guid: 5732a5f08bf15464bb30cb012e836a36, type: 3}
+      propertyPath: pleasure
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2355429443275609421, guid: 5732a5f08bf15464bb30cb012e836a36, type: 3}
       propertyPath: textChoice
       value: Texte Blabla 2
@@ -261,7 +278,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4158491210941358763, guid: 5732a5f08bf15464bb30cb012e836a36, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 30
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4158491210941358763, guid: 5732a5f08bf15464bb30cb012e836a36, type: 3}
       propertyPath: m_LocalPosition.x
@@ -311,6 +328,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5340395886312655856, guid: 5732a5f08bf15464bb30cb012e836a36, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5340395886312655856, guid: 5732a5f08bf15464bb30cb012e836a36, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5340395886312655856, guid: 5732a5f08bf15464bb30cb012e836a36, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5340395886312655856, guid: 5732a5f08bf15464bb30cb012e836a36, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5340395886312655856, guid: 5732a5f08bf15464bb30cb012e836a36, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5340395886312655856, guid: 5732a5f08bf15464bb30cb012e836a36, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5443471094075589700, guid: 5732a5f08bf15464bb30cb012e836a36, type: 3}
       propertyPath: m_Name
       value: ButtonChoice (1)
@@ -333,6 +374,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 72287015364807161}
     m_Modifications:
+    - target: {fileID: 2355429443275609421, guid: 5732a5f08bf15464bb30cb012e836a36, type: 3}
+      propertyPath: energy
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2355429443275609421, guid: 5732a5f08bf15464bb30cb012e836a36, type: 3}
+      propertyPath: glycemie
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2355429443275609421, guid: 5732a5f08bf15464bb30cb012e836a36, type: 3}
+      propertyPath: pleasure
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2355429443275609421, guid: 5732a5f08bf15464bb30cb012e836a36, type: 3}
       propertyPath: textChoice
       value: Texte Blabla 1
@@ -371,7 +424,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4158491210941358763, guid: 5732a5f08bf15464bb30cb012e836a36, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 30
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4158491210941358763, guid: 5732a5f08bf15464bb30cb012e836a36, type: 3}
       propertyPath: m_LocalPosition.x
@@ -419,6 +472,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4158491210941358763, guid: 5732a5f08bf15464bb30cb012e836a36, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5340395886312655856, guid: 5732a5f08bf15464bb30cb012e836a36, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5340395886312655856, guid: 5732a5f08bf15464bb30cb012e836a36, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5340395886312655856, guid: 5732a5f08bf15464bb30cb012e836a36, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5340395886312655856, guid: 5732a5f08bf15464bb30cb012e836a36, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5340395886312655856, guid: 5732a5f08bf15464bb30cb012e836a36, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5340395886312655856, guid: 5732a5f08bf15464bb30cb012e836a36, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5443471094075589700, guid: 5732a5f08bf15464bb30cb012e836a36, type: 3}
