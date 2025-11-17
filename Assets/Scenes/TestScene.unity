@@ -2078,6 +2078,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6898358615430592499, guid: 96fdd14394c08f6479110c07b7b17453, type: 3}
+      propertyPath: m_text
+      value: '"Je prendrais bien un instant pour me ressourcer avant de continuer"'
+      objectReference: {fileID: 0}
     - target: {fileID: 7347569906938396980, guid: 96fdd14394c08f6479110c07b7b17453, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2157,6 +2161,10 @@ PrefabInstance:
     - target: {fileID: 7347569906938396980, guid: 96fdd14394c08f6479110c07b7b17453, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7478109478842497438, guid: 96fdd14394c08f6479110c07b7b17453, type: 3}
+      propertyPath: m_text
+      value: "\"Pff\u2026 quelle journ\xE9e interminable.\""
       objectReference: {fileID: 0}
     - target: {fileID: 9035388028821530594, guid: 96fdd14394c08f6479110c07b7b17453, type: 3}
       propertyPath: m_AnchorMax.y
@@ -2918,9 +2926,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Le matin avance et la faim se fait sentir.\nTu observes ce qui s\u2019offre
-    \xE0 toi\u2026\nUn choix qui peut influencer toute ta journ\xE9e.\nQu\u2019est-ce
-    qui t\u2019attire ?"
+  m_text: "C\u2019est le matin. Vous devez choisir votre petit-d\xE9jeuner. Que prenez-vous
+    ?"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4237,6 +4244,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6898358615430592499, guid: 96fdd14394c08f6479110c07b7b17453, type: 3}
+      propertyPath: m_text
+      value: "\"Une minute pour respirer profond\xE9ment, et c\u2019est parti.\""
+      objectReference: {fileID: 0}
     - target: {fileID: 7347569906938396980, guid: 96fdd14394c08f6479110c07b7b17453, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4316,6 +4327,10 @@ PrefabInstance:
     - target: {fileID: 7347569906938396980, guid: 96fdd14394c08f6479110c07b7b17453, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7478109478842497438, guid: 96fdd14394c08f6479110c07b7b17453, type: 3}
+      propertyPath: m_text
+      value: "\"Allez, on s\u2019y met.\""
       objectReference: {fileID: 0}
     - target: {fileID: 9035388028821530594, guid: 96fdd14394c08f6479110c07b7b17453, type: 3}
       propertyPath: m_AnchorMax.y
@@ -4674,7 +4689,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6898358615430592499, guid: 96fdd14394c08f6479110c07b7b17453, type: 3}
       propertyPath: m_text
-      value: "Parce que la si tu r\xE9pond mal tabac dan'front"
+      value: "\"C\u2019est la base si je veux \xE9viter les mauvaises surprises plus
+        tard.\""
       objectReference: {fileID: 0}
     - target: {fileID: 7347569906938396980, guid: 96fdd14394c08f6479110c07b7b17453, type: 3}
       propertyPath: m_Pivot.x
@@ -4758,7 +4774,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7478109478842497438, guid: 96fdd14394c08f6479110c07b7b17453, type: 3}
       propertyPath: m_text
-      value: Maintenant on va voir si tes bon
+      value: '"Ne pas oublier mon traitement."'
       objectReference: {fileID: 0}
     - target: {fileID: 9035388028821530594, guid: 96fdd14394c08f6479110c07b7b17453, type: 3}
       propertyPath: m_AnchorMax.y
@@ -6338,6 +6354,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6898358615430592499, guid: 96fdd14394c08f6479110c07b7b17453, type: 3}
+      propertyPath: m_text
+      value: '"Une petite marche pourrait me faire du bien."'
+      objectReference: {fileID: 0}
     - target: {fileID: 7347569906938396980, guid: 96fdd14394c08f6479110c07b7b17453, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -6417,6 +6437,10 @@ PrefabInstance:
     - target: {fileID: 7347569906938396980, guid: 96fdd14394c08f6479110c07b7b17453, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7478109478842497438, guid: 96fdd14394c08f6479110c07b7b17453, type: 3}
+      propertyPath: m_text
+      value: "\"Bon, direction le travail. Ce n\u2019est pas si loin\u2026\""
       objectReference: {fileID: 0}
     - target: {fileID: 9035388028821530594, guid: 96fdd14394c08f6479110c07b7b17453, type: 3}
       propertyPath: m_AnchorMax.y
@@ -7778,6 +7802,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6898358615430592499, guid: 96fdd14394c08f6479110c07b7b17453, type: 3}
+      propertyPath: m_text
+      value: "\"J\u2019ai h\xE2te de rentrer et de me poser un peu.\""
+      objectReference: {fileID: 0}
     - target: {fileID: 7347569906938396980, guid: 96fdd14394c08f6479110c07b7b17453, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -7857,6 +7885,10 @@ PrefabInstance:
     - target: {fileID: 7347569906938396980, guid: 96fdd14394c08f6479110c07b7b17453, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7478109478842497438, guid: 96fdd14394c08f6479110c07b7b17453, type: 3}
+      propertyPath: m_text
+      value: "\"Enfin la fin de la journ\xE9e\u2026\""
       objectReference: {fileID: 0}
     - target: {fileID: 9035388028821530594, guid: 96fdd14394c08f6479110c07b7b17453, type: 3}
       propertyPath: m_AnchorMax.y
@@ -10116,6 +10148,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6898358615430592499, guid: 96fdd14394c08f6479110c07b7b17453, type: 3}
+      propertyPath: m_text
+      value: "\"J\u2019avais vraiment besoin de ce moment pour souffler.\""
+      objectReference: {fileID: 0}
     - target: {fileID: 7347569906938396980, guid: 96fdd14394c08f6479110c07b7b17453, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -10195,6 +10231,10 @@ PrefabInstance:
     - target: {fileID: 7347569906938396980, guid: 96fdd14394c08f6479110c07b7b17453, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7478109478842497438, guid: 96fdd14394c08f6479110c07b7b17453, type: 3}
+      propertyPath: m_text
+      value: "\"Enfin la pause d\xE9jeuner !\""
       objectReference: {fileID: 0}
     - target: {fileID: 9035388028821530594, guid: 96fdd14394c08f6479110c07b7b17453, type: 3}
       propertyPath: m_AnchorMax.y
@@ -11218,6 +11258,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6898358615430592499, guid: 96fdd14394c08f6479110c07b7b17453, type: 3}
+      propertyPath: m_text
+      value: "\"Hmm\u2026 C\u2019est juste un g\xE2teau\u2026 Est-ce que \xE7a pourrait
+        vraiment me porter pr\xE9judice ?\""
+      objectReference: {fileID: 0}
     - target: {fileID: 7347569906938396980, guid: 96fdd14394c08f6479110c07b7b17453, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -11297,6 +11342,10 @@ PrefabInstance:
     - target: {fileID: 7347569906938396980, guid: 96fdd14394c08f6479110c07b7b17453, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7478109478842497438, guid: 96fdd14394c08f6479110c07b7b17453, type: 3}
+      propertyPath: m_text
+      value: "\"On a ramen\xE9 des g\xE2teaux, tu en veux ?\""
       objectReference: {fileID: 0}
     - target: {fileID: 9035388028821530594, guid: 96fdd14394c08f6479110c07b7b17453, type: 3}
       propertyPath: m_AnchorMax.y
@@ -11975,6 +12024,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6898358615430592499, guid: 96fdd14394c08f6479110c07b7b17453, type: 3}
+      propertyPath: m_text
+      value: "\"Un petit truc sucr\xE9 me remettrait d\u2019aplomb\u2026 ou pas.\""
+      objectReference: {fileID: 0}
     - target: {fileID: 7347569906938396980, guid: 96fdd14394c08f6479110c07b7b17453, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -12054,6 +12107,10 @@ PrefabInstance:
     - target: {fileID: 7347569906938396980, guid: 96fdd14394c08f6479110c07b7b17453, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7478109478842497438, guid: 96fdd14394c08f6479110c07b7b17453, type: 3}
+      propertyPath: m_text
+      value: "\"Encore quelques heures \xE0 tenir.\""
       objectReference: {fileID: 0}
     - target: {fileID: 9035388028821530594, guid: 96fdd14394c08f6479110c07b7b17453, type: 3}
       propertyPath: m_AnchorMax.y
@@ -13364,6 +13421,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6898358615430592499, guid: 96fdd14394c08f6479110c07b7b17453, type: 3}
+      propertyPath: m_text
+      value: "\"Il faut juste que je fasse attention \xE0 ce que je choisis.\""
+      objectReference: {fileID: 0}
     - target: {fileID: 7347569906938396980, guid: 96fdd14394c08f6479110c07b7b17453, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -13443,6 +13504,10 @@ PrefabInstance:
     - target: {fileID: 7347569906938396980, guid: 96fdd14394c08f6479110c07b7b17453, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7478109478842497438, guid: 96fdd14394c08f6479110c07b7b17453, type: 3}
+      propertyPath: m_text
+      value: "\"J\u2019ai vraiment envie d\u2019un bon repas ce soir.\""
       objectReference: {fileID: 0}
     - target: {fileID: 9035388028821530594, guid: 96fdd14394c08f6479110c07b7b17453, type: 3}
       propertyPath: m_AnchorMax.y
@@ -16448,6 +16513,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6898358615430592499, guid: 96fdd14394c08f6479110c07b7b17453, type: 3}
+      propertyPath: m_text
+      value: "\"Mais est-ce que c\u2019est vraiment raisonnable maintenant ?\""
+      objectReference: {fileID: 0}
     - target: {fileID: 7347569906938396980, guid: 96fdd14394c08f6479110c07b7b17453, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -16527,6 +16596,10 @@ PrefabInstance:
     - target: {fileID: 7347569906938396980, guid: 96fdd14394c08f6479110c07b7b17453, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7478109478842497438, guid: 96fdd14394c08f6479110c07b7b17453, type: 3}
+      propertyPath: m_text
+      value: "\"Un petit caf\xE9 me ferait du bien\u2026\""
       objectReference: {fileID: 0}
     - target: {fileID: 9035388028821530594, guid: 96fdd14394c08f6479110c07b7b17453, type: 3}
       propertyPath: m_AnchorMax.y
@@ -16649,8 +16722,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6898358615430592499, guid: 96fdd14394c08f6479110c07b7b17453, type: 3}
       propertyPath: m_text
-      value: "L\u2019aube filtre \xE0 travers les rideaux. Tes paupi\xE8res sont
-        lourdes, encore coll\xE9es par la nuit.\nC\u2019est le d\xE9but de ta journ\xE9e."
+      value: "\"Encore ce fichu r\xE9veil\u2026 Je me sens d\xE9j\xE0 \xE9puis\xE9.
+        Allez, il faut que je prenne la journ\xE9e en main.\""
       objectReference: {fileID: 0}
     - target: {fileID: 7095677852907607098, guid: 96fdd14394c08f6479110c07b7b17453, type: 3}
       propertyPath: m_IsActive
@@ -16738,9 +16811,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7478109478842497438, guid: 96fdd14394c08f6479110c07b7b17453, type: 3}
       propertyPath: m_text
-      value: "Tu entres dans la vie d\u2019une personne vivant avec un diab\xE8te
-        de type 2.\nRythme, stress, alimentation, gestion quotidienne\u2026\nTes
-        choix fa\xE7onneront son \xE9quilibre et son bien-\xEAtre."
+      value: "\xE0 la R\xE9union 14% de la population qui est atteinte d'un diab\xE8te
+        de type 2. Contrairement aux personnes atteintes de diab\xE8te de type 1,
+        leurs corps produisent de l\u2019insuline mais le taux de cette hormone est
+        r\xE9gul\xE9 moins efficacement dans leur sang.\r\nNotre jeu a pour but de
+        sensibiliser \xE0 l\u2019aide de quelques exemples de la vie quotidienne
+        aux probl\xE8mes que pourraient rencontrer les personnes atteintes de diab\xE8te
+        de type 2.\r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 7478109478842497438, guid: 96fdd14394c08f6479110c07b7b17453, type: 3}
       propertyPath: m_HorizontalAlignment
