@@ -14,7 +14,7 @@ public class DayResultManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI bodyText;
 
     [Header("Seuils Glycémie (g/L)")]
-    [SerializeField] private float glyLowMax = 0.8f;
+    [SerializeField] private float glyLowMax = 0.7f;
     [SerializeField] private float glyHighMin = 1.6f;
 
     [Header("Seuils Vitalité (0-100)")]
@@ -152,16 +152,18 @@ public class DayResultManager : MonoBehaviour
             resultPanel.SetActive(false);
     }
 
-        public void ReplayDay()
+    // 🔁 Bouton "Rejouer"
+    public void ReplayDay()
     {
         Debug.Log("[DayResultManager] Rejouer la journée.");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Scene current = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(current.name);
     }
 
+    // 🏠 Bouton "Menu"
     public void GoToMenu()
     {
         Debug.Log("[DayResultManager] Retour au menu.");
-        SceneManager.LoadScene("MainMenu"); // ← Mets ici le nom exact de ta scène menu
+        SceneManager.LoadScene("MainMenu"); // ← Mets ici le nom EXACT de ta scène menu
     }
-
 }
