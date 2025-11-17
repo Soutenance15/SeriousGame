@@ -26,6 +26,12 @@ public class DialogManager : MonoBehaviour
             allDialogs.Add(child.gameObject);
         }
 
+        if (allDialogs.Count == 0)
+        {
+            Debug.LogWarning("[DialogManager] Aucun dialog trouvé dans panelAlldialog.");
+            return;
+        }
+
         currentDialogIndex = 0;
         currentDialog = allDialogs[currentDialogIndex];
 
@@ -40,16 +46,18 @@ public class DialogManager : MonoBehaviour
 
     private void OnEnable()
     {
-        // ⚠️ On ne laisse plus ChoiceManager déclencher tout seul le "Next"
-        // choiceManager.StartNewDialog += NextDialog;
-
-        // On branche un event ou une méthode pour recevoir le feedback
-        choiceManager.OnChoiceSelectedWithFeedback += ShowFeedback;
+        if (choiceManager != null)
+        {
+            choiceManager.OnChoiceSelectedWithFeedback += ShowFeedback;
+        }
+        else
+        {
+            Debug.LogWarning("[DialogManager] ChoiceManager n'est pas assigné dans l'inspector.");
+        }
     }
 
     private void OnDisable()
     {
-        // choiceManager.StartNewDialog -= NextDialog;
         if (choiceManager != null)
             choiceManager.OnChoiceSelectedWithFeedback -= ShowFeedback;
     }
@@ -59,7 +67,7 @@ public class DialogManager : MonoBehaviour
     /// </summary>
     public void ShowFeedback(string feedback)
     {
-        // Si pas de feedback, on enchaîne direct
+        // Si pas de feedback, on enchaîne direct sur le dialog suivant
         if (string.IsNullOrEmpty(feedback))
         {
             NextDialog();
@@ -77,18 +85,20 @@ public class DialogManager : MonoBehaviour
     {
         if (feedbackPanel != null) feedbackPanel.SetActive(false);
 
-        // Maintenant seulement on passe à la question suivante
+        // Maintenant seulement on passe à la question / dialog suivant
         NextDialog();
     }
 
     private void NextDialog()
     {
+        // On passe au dialog suivant
         currentDialogIndex += 1;
 
         if (currentDialogIndex < allDialogs.Count)
         {
             // Désactive l'ancien dialog
-            currentDialog.SetActive(false);
+            if (currentDialog != null)
+                currentDialog.SetActive(false);
 
             // Met à jour currentDialog avant d'appeler UpdateText
             currentDialog = allDialogs[currentDialogIndex];
@@ -102,7 +112,17 @@ public class DialogManager : MonoBehaviour
         else
         {
             Debug.Log("Il n'y a pas de next dialog");
-            // ici tu peux désactiver le canvas, lancer une autre scène, etc.
+
+            // 👉 Ici on déclenche la fin de journée / fin du quiz
+            if (choiceManager != null)
+            {
+                Debug.Log("[DialogManager] Fin des dialogs, on appelle TriggerEndOfDay sur ChoiceManager.");
+                choiceManager.TriggerEndOfDay();
+            }
+            else
+            {
+                Debug.LogWarning("[DialogManager] Impossible d'appeler TriggerEndOfDay : ChoiceManager est null.");
+            }
         }
     }
 }
