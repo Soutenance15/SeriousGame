@@ -5,6 +5,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro; // ✅ Pour TextMeshPro
+using UnityEngine.SceneManagement; // ✅ Pour recharger la scène
 
 public class ChoiceManager : MonoBehaviour
 {
@@ -47,6 +48,14 @@ public class ChoiceManager : MonoBehaviour
 
     bool everStarted;
 
+    // 🔴 Seuil critique
+    [Header("Seuil critique glycémie")]
+    [SerializeField] private float glycemieCritical = 2.0f;
+
+    [Header("UI Critique (hyperglycémie)")]
+    [SerializeField] private GameObject criticalPanel;
+    [SerializeField] private TextMeshProUGUI criticalText;
+
     // Envoie le feedback au DialogManager
     public event Action<string> OnChoiceSelectedWithFeedback;
     public event Action OnAllChoicesDone;
@@ -81,6 +90,10 @@ public class ChoiceManager : MonoBehaviour
             currentChoiceIndex = 0;
             currentChoice = allChoices[currentChoiceIndex];
         }
+
+        // Panel critique OFF au départ
+        if (criticalPanel != null)
+            criticalPanel.SetActive(false);
     }
 
     private void OnEnable()
@@ -158,6 +171,46 @@ public class ChoiceManager : MonoBehaviour
         float targetEnergy = player.GetEnergy();
         float targetPleasure = player.GetPleasure();
 
+        // 📛 Vérification du seuil critique AVANT de continuer
+        if (targetGly >= glycemieCritical)
+        {
+            Debug.Log($"[CRITIQUE] Glycémie dépassée ({targetGly:0.00} g/L) — seuil: {glycemieCritical:0.00}");
+
+            // On met à jour les sliders direct (sans animation)
+            if (sliderGlycemie != null) sliderGlycemie.value = targetGly;
+            if (sliderEnergy != null)   sliderEnergy.value = targetEnergy;
+            if (sliderPleasure != null) sliderPleasure.value = targetPleasure;
+
+            if (glycemieText != null)
+                glycemieText.text = targetGly.ToString("0.00") + " g/L";
+
+            if (energyText != null)
+                energyText.text = Mathf.RoundToInt(targetEnergy).ToString("0");
+
+            if (pleasureText != null)
+                pleasureText.text = Mathf.RoundToInt(targetPleasure).ToString("0");
+
+            // On bloque les choix
+            if (panelAllChoices != null)
+                panelAllChoices.SetActive(false);
+
+            // Affichage du panneau critique
+            if (criticalPanel != null)
+                criticalPanel.SetActive(true);
+
+            if (criticalText != null)
+            {
+                criticalText.text =
+                    $"Votre glycémie a dépassé le seuil critique de {glycemieCritical:0.00} g/L.\n\n" +
+                    "Votre corps n’arrive plus à compenser cette journée.\n" +
+                    "Dans la réalité, une telle situation peut nécessiter une prise en charge urgente.\n\n" +
+                    "Vous pouvez recommencer la journée pour essayer d’autres choix.";
+            }
+
+            // On ne continue pas vers feedback / next dialog
+            return;
+        }
+
         // ----------------------------
         // 🎚 ANIMATION PROGRESSIVE DES SLIDERS
         // ----------------------------
@@ -211,6 +264,14 @@ public class ChoiceManager : MonoBehaviour
     {
         Debug.Log("[ChoiceManager] TriggerEndOfDay() appelé depuis DialogManager (fin des dialogs).");
         OnAllChoicesDone?.Invoke();
+    }
+
+    // 🔁 Rejouer la journée après un état critique
+    public void RestartCritical()
+    {
+        Debug.Log("[ChoiceManager] RestartCritical appelé. Rechargement de la scène.");
+        Scene current = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(current.name);
     }
 
     // ------------------------------------------------
