@@ -733,7 +733,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6432183660655296100, guid: 43ed15ad18c9259409b2892b4f5d8d27, type: 3}
   m_PrefabInstance: {fileID: 7832109663759253457}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 829838198}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
@@ -1330,6 +1330,10 @@ PrefabInstance:
       value: 36
       objectReference: {fileID: 0}
     - target: {fileID: 2884278403549326052, guid: 34b480e6298613c40858d97b151dc6e7, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+    - target: {fileID: 2884278403549326052, guid: 34b480e6298613c40858d97b151dc6e7, type: 3}
       propertyPath: m_fontStyle
       value: 1
       objectReference: {fileID: 0}
@@ -1350,8 +1354,16 @@ PrefabInstance:
       value: 36
       objectReference: {fileID: 0}
     - target: {fileID: 2884278403549326052, guid: 34b480e6298613c40858d97b151dc6e7, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+    - target: {fileID: 2884278403549326052, guid: 34b480e6298613c40858d97b151dc6e7, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4278190080
+      objectReference: {fileID: 0}
+    - target: {fileID: 2884278403549326052, guid: 34b480e6298613c40858d97b151dc6e7, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3055008547959440608, guid: 34b480e6298613c40858d97b151dc6e7, type: 3}
       propertyPath: m_SizeDelta.x
@@ -2219,6 +2231,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 794675403}
   m_CullTransparentMesh: 1
+--- !u!1 &829838198 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4443240214110163296, guid: 43ed15ad18c9259409b2892b4f5d8d27, type: 3}
+  m_PrefabInstance: {fileID: 7832109663759253457}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &829838202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 829838198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.LayoutElement
+  m_IgnoreLayout: 1
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: -1
+  m_PreferredHeight: -1
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!1001 &846090651
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5954,19 +5991,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1034157536167857927, guid: 43ed15ad18c9259409b2892b4f5d8d27, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1034157536167857927, guid: 43ed15ad18c9259409b2892b4f5d8d27, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1034157536167857927, guid: 43ed15ad18c9259409b2892b4f5d8d27, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 126.0839
+      objectReference: {fileID: 0}
+    - target: {fileID: 1034157536167857927, guid: 43ed15ad18c9259409b2892b4f5d8d27, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 35.1325
       objectReference: {fileID: 0}
     - target: {fileID: 1034157536167857927, guid: 43ed15ad18c9259409b2892b4f5d8d27, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 833
       objectReference: {fileID: 0}
     - target: {fileID: 1034157536167857927, guid: 43ed15ad18c9259409b2892b4f5d8d27, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -28.300049
       objectReference: {fileID: 0}
     - target: {fileID: 1043723160835685508, guid: 43ed15ad18c9259409b2892b4f5d8d27, type: 3}
       propertyPath: m_text
@@ -6785,6 +6830,9 @@ PrefabInstance:
       insertIndex: 6
       addedObject: {fileID: 521842324}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4443240214110163296, guid: 43ed15ad18c9259409b2892b4f5d8d27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 829838202}
     - targetCorrespondingSourceObject: {fileID: 568094520490905543, guid: 43ed15ad18c9259409b2892b4f5d8d27, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1256905044}
