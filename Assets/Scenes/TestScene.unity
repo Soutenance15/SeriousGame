@@ -5901,7 +5901,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 11207175050070998, guid: 43ed15ad18c9259409b2892b4f5d8d27, type: 3}
       propertyPath: m_text
-      value: "\u201CEncore ce fichu r\xE9veil\u2026 Je me sens d\xE9j\xE0 \xE9puis\xE9.
+      value: "\u201CEncore ce fichu r\xE9veil \u2026 Je me sens d\xE9j\xE0 \xE9puis\xE9.
         Allez, il faut que je prenne la journ\xE9e en main.\u201D"
       objectReference: {fileID: 0}
     - target: {fileID: 106682865360928526, guid: 43ed15ad18c9259409b2892b4f5d8d27, type: 3}
@@ -5970,7 +5970,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1043723160835685508, guid: 43ed15ad18c9259409b2892b4f5d8d27, type: 3}
       propertyPath: m_text
-      value: "\"Bon, direction le travail. Ce n\u2019est pas si loin\u2026\""
+      value: "\"Bon, direction le travail. Ce n\u2019est pas si loin\""
       objectReference: {fileID: 0}
     - target: {fileID: 1188621051332337906, guid: 43ed15ad18c9259409b2892b4f5d8d27, type: 3}
       propertyPath: m_AnchorMax.y
@@ -6350,10 +6350,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4061016175769159099, guid: 43ed15ad18c9259409b2892b4f5d8d27, type: 3}
       propertyPath: m_text
-      value: "\xE0 la R\xE9union 14% de la population qui est atteinte d'un diab\xE8te
-        de type 2.\r\nNotre jeu a pour but de sensibiliser \xE0 l\u2019aide de quelques
-        exemples de la vie quotidienne aux probl\xE8mes que pourraient rencontrer
-        les personnes atteintes de diab\xE8te de type 2.\r\n"
+      value: "\xC0 La R\xE9union, pr\xE8s de 14 % de la population vit avec un diab\xE8te
+        de type 2.\nNotre jeu vise \xE0 sensibiliser en plongeant le joueur dans
+        des situations simples du quotidien, pour montrer concr\xE8tement les d\xE9fis
+        que rencontrent les personnes concern\xE9es."
       objectReference: {fileID: 0}
     - target: {fileID: 4109380659182104931, guid: 43ed15ad18c9259409b2892b4f5d8d27, type: 3}
       propertyPath: m_text
@@ -6508,6 +6508,12 @@ PrefabInstance:
       propertyPath: m_fontColor32.rgba
       value: 4292388588
       objectReference: {fileID: 0}
+    - target: {fileID: 4850165522698112902, guid: 43ed15ad18c9259409b2892b4f5d8d27, type: 3}
+      propertyPath: m_text
+      value: "Le matin avance et la faim se fait sentir.\nTu observes ce qui s\u2019offre
+        \xE0 toi\nUn choix qui peut influencer toute ta journ\xE9e.\nQu\u2019est-ce
+        qui t\u2019attire ?"
+      objectReference: {fileID: 0}
     - target: {fileID: 5196268627146063097, guid: 43ed15ad18c9259409b2892b4f5d8d27, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -6627,8 +6633,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6974234722965789385, guid: 43ed15ad18c9259409b2892b4f5d8d27, type: 3}
       propertyPath: m_text
-      value: "\"Hmm\u2026 C\u2019est juste un g\xE2teau\u2026 Est-ce que \xE7a pourrait
-        vraiment me porter pr\xE9judice ?\""
+      value: "\"Hmm \u2026 C\u2019est juste un g\xE2teau \u2026 Est-ce que \xE7a
+        pourrait vraiment me porter pr\xE9judice ?\""
       objectReference: {fileID: 0}
     - target: {fileID: 6992690665037392385, guid: 43ed15ad18c9259409b2892b4f5d8d27, type: 3}
       propertyPath: m_AnchorMax.y
@@ -6706,6 +6712,12 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1442944077}
+    - target: {fileID: 8460174375288043193, guid: 43ed15ad18c9259409b2892b4f5d8d27, type: 3}
+      propertyPath: m_text
+      value: "Le matin avance et la faim se fait sentir.\nTu observes ce qui s\u2019offre
+        \xE0 toi\nUn choix qui peut influencer toute ta journ\xE9e.\nQu\u2019est-ce
+        qui t\u2019attire ?"
+      objectReference: {fileID: 0}
     - target: {fileID: 8483940783161391491, guid: 43ed15ad18c9259409b2892b4f5d8d27, type: 3}
       propertyPath: m_text
       value: "\"Je devrais peut-\xEAtre prendre un moment pour me ressourcer avant
@@ -6747,8 +6759,24 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9024377659337634677, guid: 43ed15ad18c9259409b2892b4f5d8d27, type: 3}
+      propertyPath: m_text
+      value: "Le matin avance et la faim se fait sentir.\nTu observes ce qui s\u2019offre
+        \xE0 toi\nUn choix qui peut influencer toute ta journ\xE9e.\nQu\u2019est-ce
+        qui t\u2019attire ?"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6595269724646150667, guid: 43ed15ad18c9259409b2892b4f5d8d27, type: 3}
+    - {fileID: 6040046940182386631, guid: 43ed15ad18c9259409b2892b4f5d8d27, type: 3}
+    - {fileID: 4314741202267739045, guid: 43ed15ad18c9259409b2892b4f5d8d27, type: 3}
+    - {fileID: 368037292838453223, guid: 43ed15ad18c9259409b2892b4f5d8d27, type: 3}
+    - {fileID: 7253594689970641440, guid: 43ed15ad18c9259409b2892b4f5d8d27, type: 3}
+    - {fileID: 3545240356758000655, guid: 43ed15ad18c9259409b2892b4f5d8d27, type: 3}
+    - {fileID: 1184430488746581165, guid: 43ed15ad18c9259409b2892b4f5d8d27, type: 3}
+    - {fileID: 3900884992494315719, guid: 43ed15ad18c9259409b2892b4f5d8d27, type: 3}
+    - {fileID: 6980174969217062143, guid: 43ed15ad18c9259409b2892b4f5d8d27, type: 3}
+    - {fileID: 6125791457647402227, guid: 43ed15ad18c9259409b2892b4f5d8d27, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 2852472229672065640, guid: 43ed15ad18c9259409b2892b4f5d8d27, type: 3}
       insertIndex: 4
