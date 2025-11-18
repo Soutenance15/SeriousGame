@@ -5926,7 +5926,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 272014346245486743, guid: 43ed15ad18c9259409b2892b4f5d8d27, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 418.2716
+      value: 712.1124
       objectReference: {fileID: 0}
     - target: {fileID: 272014346245486743, guid: 43ed15ad18c9259409b2892b4f5d8d27, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -5934,7 +5934,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 272014346245486743, guid: 43ed15ad18c9259409b2892b4f5d8d27, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -959.1358
+      value: -812.21545
       objectReference: {fileID: 0}
     - target: {fileID: 363773794292658641, guid: 43ed15ad18c9259409b2892b4f5d8d27, type: 3}
       propertyPath: m_text
@@ -6621,6 +6621,10 @@ PrefabInstance:
       propertyPath: m_fontStyle
       value: 32
       objectReference: {fileID: 0}
+    - target: {fileID: 6854406980246295752, guid: 43ed15ad18c9259409b2892b4f5d8d27, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6974234722965789385, guid: 43ed15ad18c9259409b2892b4f5d8d27, type: 3}
       propertyPath: m_text
       value: "\"Hmm\u2026 C\u2019est juste un g\xE2teau\u2026 Est-ce que \xE7a pourrait
@@ -6659,12 +6663,16 @@ PrefabInstance:
       value: 818.8667
       objectReference: {fileID: 0}
     - target: {fileID: 7224761843561042757, guid: 43ed15ad18c9259409b2892b4f5d8d27, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 692.61
+      objectReference: {fileID: 0}
+    - target: {fileID: 7224761843561042757, guid: 43ed15ad18c9259409b2892b4f5d8d27, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 453
       objectReference: {fileID: 0}
     - target: {fileID: 7224761843561042757, guid: 43ed15ad18c9259409b2892b4f5d8d27, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -170
+      value: -69.034
       objectReference: {fileID: 0}
     - target: {fileID: 7372261047234590950, guid: 43ed15ad18c9259409b2892b4f5d8d27, type: 3}
       propertyPath: m_text
