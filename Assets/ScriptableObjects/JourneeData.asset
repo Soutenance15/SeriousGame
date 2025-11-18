@@ -17,8 +17,8 @@ MonoBehaviour:
   startEnergy: 0
   startPleasure: 0
   steps:
-  - questionText: "C\u2019est le matin. Vous devez choisir votre petit-d\xE9jeuner.
-      Que prenez-vous ?"
+  - questionText: "\"Je devrais peut-\xEAtre manger quelque chose\u2026 \xC7a m\u2019aidera
+      \xE0 bien commencer la matin\xE9e.\""
     choices:
     - label: "Le combo croissant-jus t\u2019appelle, sucr\xE9, rapide, rassurant\u2026
         Un petit plaisir pour bien lancer la journ\xE9e ?"
