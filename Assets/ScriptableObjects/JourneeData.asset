@@ -17,8 +17,8 @@ MonoBehaviour:
   startEnergy: 0
   startPleasure: 0
   steps:
-  - questionText: "C\u2019est le matin. Vous devez choisir votre petit-d\xE9jeuner.
-      Que prenez-vous ?"
+  - questionText: "\"Je devrais peut-\xEAtre manger quelque chose\u2026 \xC7a m\u2019aidera
+      \xE0 bien commencer la matin\xE9e.\""
     choices:
     - label: "Le combo croissant-jus t\u2019appelle, sucr\xE9, rapide, rassurant\u2026
         Un petit plaisir pour bien lancer la journ\xE9e ?"
@@ -75,7 +75,7 @@ MonoBehaviour:
       feedback: "Bien vu.\nLe prendre au bon moment aide ton corps \xE0 mieux g\xE9rer
         sa glyc\xE9mie.\nTu te donnes un coup de pouce pour \xE9viter les montagnes
         russes pendant ta matin\xE9e."
-  - questionText: "Le jour commence vraiment et il faut rejoindre le boulot.\nComment
+  - questionText: "La journ\xE9e commence et il faut rejoindre le boulot.\nComment
       d\xE9cides-tu de te d\xE9placer aujourd\u2019hui ?"
     choices:
     - label: "Prendre la voiture, m\xEAme si le trajet risque d\u2019\xEAtre un peu
@@ -125,8 +125,7 @@ MonoBehaviour:
         en \xE9nergie sans impacter ta glyc\xE9mie, et ce petit rituel t\u2019offre
         un moment agr\xE9able pour d\xE9marrer."
   - questionText: "L\u2019ambiance du bureau se r\xE9chauffe : quelqu\u2019un arrive
-      avec g\xE2teaux et bonbons.\nLa tentation est bien r\xE9elle !\nTu fais quoi
-      ?"
+      avec des g\xE2teaux et des bonbons.\nLa tentation est bien r\xE9elle !"
     choices:
     - label: "Te laisser tenter par un g\xE2teau bien sucr\xE9."
       deltaGlycemie: 0.25
@@ -151,7 +150,7 @@ MonoBehaviour:
         inutile et tu gardes le contr\xF4le. Une petite g\xEAne sociale pour un vrai
         gain sur la dur\xE9e."
   - questionText: "Petite pause au boulot. Tout le monde se dirige vers la machine\nQu\u2019est-ce
-      que tu choisis pour recharger un peu ?"
+      que tu choisis pour te remettre d'aplomb ?"
     choices:
     - label: Opter pour une infusion de tisane nature, sans sucre.
       deltaGlycemie: -0.02
