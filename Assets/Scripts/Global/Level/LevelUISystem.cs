@@ -15,8 +15,8 @@ public class LevelUISystem : MonoBehaviour
     Button quitButton;
 
     [Header("Panel Buttons")]
-    [SerializeField]
-    Button[] homeButtons;
+    // [SerializeField]
+    // Button[] homeButtons;
 
     [SerializeField]
     Button[] backPauseButtons;
@@ -27,11 +27,11 @@ public class LevelUISystem : MonoBehaviour
     [SerializeField]
     Button optionsButton;
 
-    [SerializeField]
-    Button yesHomeButton;
+    // [SerializeField]
+    // Button yesHomeButton;
 
-    [SerializeField]
-    Button noHomeButton;
+    // [SerializeField]
+    // Button noHomeButton;
 
     [SerializeField]
     Button yesQuitButton;
@@ -49,8 +49,8 @@ public class LevelUISystem : MonoBehaviour
     [SerializeField]
     GameObject optionsPanel;
 
-    [SerializeField]
-    GameObject confirmHomePanel;
+    // [SerializeField]
+    // GameObject confirmHomePanel;
 
     [SerializeField]
     GameObject confirmQuitPanel;
@@ -89,10 +89,10 @@ public class LevelUISystem : MonoBehaviour
 
         // Panel
 
-        foreach (Button homeButton in homeButtons)
-        {
-            homeButton.onClick.AddListener(() => confirmHomePanel.SetActive(true));
-        }
+        // foreach (Button homeButton in homeButtons)
+        // {
+        //     homeButton.onClick.AddListener(() => confirmHomePanel.SetActive(true));
+        // }
         foreach (Button backPauseButton in backPauseButtons)
         {
             backPauseButton.onClick.AddListener(() => ChangeCurrentPanel(Panel.Pause));
@@ -101,8 +101,8 @@ public class LevelUISystem : MonoBehaviour
         optionsButton.onClick.AddListener(() => ChangeCurrentPanel(Panel.Options));
         instructionsButton.onClick.AddListener(() => ChangeCurrentPanel(Panel.Instructions));
 
-        yesHomeButton.onClick.AddListener(() => GameManager.instance.ComeToHomeScene());
-        noHomeButton.onClick.AddListener(() => confirmHomePanel.SetActive(false));
+        // yesHomeButton.onClick.AddListener(() => GameManager.instance.ComeToHomeScene());
+        // noHomeButton.onClick.AddListener(() => confirmHomePanel.SetActive(false));
 
         yesQuitButton.onClick.AddListener(() => QuitApplication());
         noQuitButton.onClick.AddListener(() => confirmQuitPanel.SetActive(false));
@@ -122,7 +122,7 @@ public class LevelUISystem : MonoBehaviour
     {
         pausePanel.SetActive(onPause);
         confirmQuitPanel.SetActive(false);
-        confirmHomePanel.SetActive(false);
+        // confirmHomePanel.SetActive(false);
     }
 
     // Evenement On Click
