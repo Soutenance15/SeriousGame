@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
@@ -11,12 +12,16 @@ public class LevelManager : MonoBehaviour
     // Action
     public static Action<bool> OnPlayPauseTime;
 
+    [SerializeField]
+    Button menuButton;
+
     bool onPause;
 
     void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
         togglePlayAction = playerInput.actions["TogglePlay"];
+        menuButton.onClick.AddListener(() => PlayPauseTime());
     }
 
     void OnEnable()

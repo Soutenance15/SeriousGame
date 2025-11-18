@@ -121,6 +121,8 @@ public class LevelUISystem : MonoBehaviour
     void TooglePlay(bool onPause)
     {
         pausePanel.SetActive(onPause);
+        confirmQuitPanel.SetActive(false);
+        confirmHomePanel.SetActive(false);
     }
 
     // Evenement On Click

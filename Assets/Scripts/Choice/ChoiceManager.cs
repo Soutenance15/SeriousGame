@@ -49,6 +49,7 @@ public class ChoiceManager : MonoBehaviour
 
     // Envoie le feedback au DialogManager
     public event Action<string> OnChoiceSelectedWithFeedback;
+    public event Action OnAllChoicesDone;
 
     void Awake()
     {
@@ -84,7 +85,8 @@ public class ChoiceManager : MonoBehaviour
 
     private void OnEnable()
     {
-        nextTextManager.StartNewChoice += NextChoice;
+        if (nextTextManager != null)
+            nextTextManager.StartNewChoice += NextChoice;
 
         if (choiceEvent != null)
             choiceEvent.RegisterListener(OnChoiceClick);
@@ -92,7 +94,8 @@ public class ChoiceManager : MonoBehaviour
 
     private void OnDisable()
     {
-        nextTextManager.StartNewChoice -= NextChoice;
+        if (nextTextManager != null)
+            nextTextManager.StartNewChoice -= NextChoice;
 
         if (choiceEvent != null)
             choiceEvent.UnregisterListener(OnChoiceClick);
@@ -193,93 +196,106 @@ public class ChoiceManager : MonoBehaviour
         else
         {
             Debug.Log("Il n'y a pas de next choice");
+
+            // ➜ Fin de toutes les questions (si jamais c'est appelé par un autre système)
+            Debug.Log("[ChoiceManager] NextChoice a atteint la fin des choix, OnAllChoicesDone est invoqué.");
+            OnAllChoicesDone?.Invoke();
         }
+    }
+
+    /// <summary>
+    /// Appelé par le DialogManager quand il n'y a plus de dialogs à afficher
+    /// (fin des feedbacks / questions).
+    /// </summary>
+    public void TriggerEndOfDay()
+    {
+        Debug.Log("[ChoiceManager] TriggerEndOfDay() appelé depuis DialogManager (fin des dialogs).");
+        OnAllChoicesDone?.Invoke();
     }
 
     // ------------------------------------------------
     // 🎞️ ANIMATION DOUCE DES SLIDERS + TEXTES
     // ------------------------------------------------
-private IEnumerator AnimateSlider(
-    Slider slider,
-    float startValue,
-    float targetValue,
-    float duration,
-    TextMeshProUGUI valueText,
-    bool isGlycemie
-)
-{
-    float time = 0f;
-
-    // ---- BOUNCE : petit boost du scale au début ----
-    Transform s = slider.transform;
-    Vector3 baseScale = s.localScale;
-    Vector3 boostedScale = baseScale * 1.10f;   // petite montée
-    Vector3 overShootScale = baseScale * 1.04f; // micro rebond final
-
-    // start → boost
-    float bounceInTime = 0.1f;
-    float bounceOutTime = 0.12f;
-
-    // Phase 1 : petit pop rapide
-    float bt = 0f;
-    while (bt < bounceInTime)
+    private IEnumerator AnimateSlider(
+        Slider slider,
+        float startValue,
+        float targetValue,
+        float duration,
+        TextMeshProUGUI valueText,
+        bool isGlycemie
+    )
     {
-        bt += Time.deltaTime;
-        float t = bt / bounceInTime;
-        t = t * t; // ease-in
-        s.localScale = Vector3.Lerp(baseScale, boostedScale, t);
-        yield return null;
-    }
+        float time = 0f;
 
-    // ---- SLIDER VALUE ANIMATION ----
-    while (time < duration)
-    {
-        time += Time.deltaTime;
-        float t = time / duration;
-        t = t * t * (3f - 2f * t); // smoothstep
+        // ---- BOUNCE : petit boost du scale au début ----
+        Transform s = slider.transform;
+        Vector3 baseScale = s.localScale;
+        Vector3 boostedScale = baseScale * 1.10f;   // petite montée
+        Vector3 overShootScale = baseScale * 1.04f; // micro rebond final
 
-        float currentValue = Mathf.Lerp(startValue, targetValue, t);
-        slider.value = currentValue;
+        // start → boost
+        float bounceInTime = 0.1f;
+        float bounceOutTime = 0.12f;
 
-        // Mise à jour du texte
+        // Phase 1 : petit pop rapide
+        float bt = 0f;
+        while (bt < bounceInTime)
+        {
+            bt += Time.deltaTime;
+            float t = bt / bounceInTime;
+            t = t * t; // ease-in
+            s.localScale = Vector3.Lerp(baseScale, boostedScale, t);
+            yield return null;
+        }
+
+        // ---- SLIDER VALUE ANIMATION ----
+        while (time < duration)
+        {
+            time += Time.deltaTime;
+            float t = time / duration;
+            t = t * t * (3f - 2f * t); // smoothstep
+
+            float currentValue = Mathf.Lerp(startValue, targetValue, t);
+            slider.value = currentValue;
+
+            // Mise à jour du texte
+            if (valueText != null)
+            {
+                if (isGlycemie)
+                    valueText.text = currentValue.ToString("0.00") + " g/L";
+                else
+                    valueText.text = Mathf.RoundToInt(currentValue).ToString("0");
+            }
+
+            yield return null;
+        }
+
+        slider.value = targetValue;
+
+        // ---- PHASE 2 : retour vers overshoot -> base ----
+        // Petit rebond amorti
+        float ot = 0f;
+        while (ot < bounceOutTime)
+        {
+            ot += Time.deltaTime;
+            float t = ot / bounceOutTime;
+            t = Mathf.Sin(t * Mathf.PI); // rebond léger
+
+            // overshoot → baseScale
+            s.localScale = Vector3.Lerp(overShootScale, baseScale, t);
+
+            yield return null;
+        }
+
+        s.localScale = baseScale;
+
+        // Mise à jour définitive du texte
         if (valueText != null)
         {
             if (isGlycemie)
-                valueText.text = currentValue.ToString("0.00") + " g/L";
+                valueText.text = targetValue.ToString("0.00") + " g/L";
             else
-                valueText.text = Mathf.RoundToInt(currentValue).ToString("0");
+                valueText.text = Mathf.RoundToInt(targetValue).ToString("0");
         }
-
-        yield return null;
     }
-
-    slider.value = targetValue;
-
-    // ---- PHASE 2 : retour vers overshoot -> base ----
-    // Petit rebond amorti
-    float ot = 0f;
-    while (ot < bounceOutTime)
-    {
-        ot += Time.deltaTime;
-        float t = ot / bounceOutTime;
-        t = Mathf.Sin(t * Mathf.PI); // rebond léger
-
-        // overshoot → baseScale
-        s.localScale = Vector3.Lerp(overShootScale, baseScale, t);
-
-        yield return null;
-    }
-
-    s.localScale = baseScale;
-
-    // Mise à jour définitive du texte
-    if (valueText != null)
-    {
-        if (isGlycemie)
-            valueText.text = targetValue.ToString("0.00") + " g/L";
-        else
-            valueText.text = Mathf.RoundToInt(targetValue).ToString("0");
-    }
-}
-
 }
