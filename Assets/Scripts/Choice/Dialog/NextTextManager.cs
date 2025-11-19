@@ -7,19 +7,20 @@ using UnityEngine.UI;
 
 public class NextTextManager : MonoBehaviour
 {
-    [SerializeField]
-    NextTextEvent nextTextEvent;
+    [SerializeField] private NextTextEvent nextTextEvent;
 
-    [SerializeField]
-    GameObject panelAllTexts;
-    List<GameObject> allTexts;
+    [SerializeField] private GameObject panelAllTexts;
+    private List<GameObject> allTexts;
 
-    int currentTextIndex = 0;
-    GameObject currentText;
+    private int currentTextIndex = 0;
+    private GameObject currentText;
 
     public Action StartNewChoice;
 
-    void Awake()
+    [Header("Illustration liée à la ligne de texte")]
+    [SerializeField] private Image illustrationImage;   // Image entre les barres et la question
+
+    private void Awake()
     {
         UpdateText(panelAllTexts);
     }
@@ -39,33 +40,30 @@ public class NextTextManager : MonoBehaviour
     void OnNextTextClick(Text text)
     {
         currentTextIndex += 1;
-        Debug.Log("Current Index : + " + currentTextIndex);
-        Debug.Log("allTexts.Count : + " + allTexts.Count);
-        if (currentTextIndex < allTexts.Count())
+        Debug.Log("Current Index : " + currentTextIndex);
+        Debug.Log("allTexts.Count : " + allTexts.Count);
+
+        if (currentTextIndex < allTexts.Count)
         {
             Debug.Log("Il y a un next text");
 
-            // Cache le text courant
+            // Cache le texte courant
             currentText.SetActive(false);
 
-            // Change le text courant
+            // Nouveau texte courant
             currentText = allTexts[currentTextIndex];
-
-            // Affiche le nouveau text courant
             currentText.SetActive(true);
-            if (currentTextIndex == allTexts.Count() - 1 && (null != text.GetNextButton()))
+
+            // 🔹 Met à jour l'image en fonction de ce texte
+            UpdateIllustrationForCurrentText();
+
+            if (currentTextIndex == allTexts.Count - 1 && (null != text.GetNextButton()))
             {
                 // Securité
-                // Le dernier dialog ne doit pas avoir de bouton next normalement.
                 text.GetNextButton().gameObject.SetActive(false);
                 StartNewChoice?.Invoke();
             }
         }
-        // else
-        // {
-        //     StartNewChoice?.Invoke();
-        //     Debug.Log("Il n'y a pas de next text");
-        // }
     }
 
     public void UpdateText(GameObject panelAllTexts)
@@ -73,16 +71,45 @@ public class NextTextManager : MonoBehaviour
         this.panelAllTexts = panelAllTexts;
         allTexts = new List<GameObject>();
         currentTextIndex = 0;
+
         foreach (Transform child in panelAllTexts.transform)
         {
-            if (null != child.gameObject.GetComponent<TextMeshProUGUI>())
+            if (child.gameObject.GetComponent<TextMeshProUGUI>() != null)
             {
                 child.gameObject.SetActive(false);
                 allTexts.Add(child.gameObject);
             }
         }
 
+        if (allTexts.Count == 0)
+        {
+            Debug.LogWarning("[NextTextManager] Aucun TextMeshProUGUI trouvé dans ce panel.");
+            return;
+        }
+
         currentText = allTexts[currentTextIndex];
         currentText.SetActive(true);
+
+        // 🔹 Première image pour le premier texte
+        UpdateIllustrationForCurrentText();
+    }
+
+    private void UpdateIllustrationForCurrentText()
+    {
+        if (illustrationImage == null || currentText == null)
+            return;
+
+        DialogData data = currentText.GetComponent<DialogData>();
+
+        if (data != null && data.illustration != null)
+        {
+            illustrationImage.sprite = data.illustration;
+            illustrationImage.gameObject.SetActive(true);
+        }
+        else
+        {
+            // Si tu préfères garder l'ancienne image, commente la ligne suivante
+            illustrationImage.gameObject.SetActive(false);
+        }
     }
 }

@@ -938,7 +938,7 @@ MonoBehaviour:
   skipButton: {fileID: 0}
   illustrationImage: {fileID: 654492080}
   panelCanvasGroup: {fileID: 1887743749}
-  fadeDuration: 1
+  fadeDuration: 2
   cards:
   - body: "Beaucoup de maladies chroniques, comme le diab\xE8te de type 2, ne se
       voient pas. Pourtant, elles demandent une attention permanente : surveiller
